@@ -1,0 +1,58 @@
+
+Log Entry : 12:02:33 vendredi 27 novembre 2020
+  :
+  :Début exécution
+-------------------------------
+
+Log Entry : 12:02:35 vendredi 27 novembre 2020
+  :
+  :exécution Batch : C:\\Source\\Repos\\ExecutionWPF\\ExecutionWPF\\batchExampleError.bat
+-------------------------------
+
+Log Entry : 12:02:35 vendredi 27 novembre 2020
+  :
+  :
+output>>Bienvenue
+
+error>>(none)
+ExitCode>> -1
+-------------------------------
+
+Log Entry : 12:02:35 vendredi 27 novembre 2020
+  :
+  :exit code Batch : -1
+-------------------------------
+
+Log Entry : 12:02:35 vendredi 27 novembre 2020
+  :
+  :Affichage plein écran + bloquer Hotkeys
+-------------------------------
+
+Log Entry : 12:05:13 vendredi 27 novembre 2020
+  :
+  :Début exécution
+-------------------------------
+
+Log Entry : 12:05:16 vendredi 27 novembre 2020
+  :
+  :exécution Batch : C:\\Source\\Repos\\ExecutionWPF\\ExecutionWPF\\batchExampleError.bat
+-------------------------------
+
+Log Entry : 12:05:16 vendredi 27 novembre 2020
+  :
+  :
+output>>Bienvenue
+
+error>>(none)
+ExitCode>> -1
+-------------------------------
+
+Log Entry : 12:05:16 vendredi 27 novembre 2020
+  :
+  :exit code Batch : -1
+-------------------------------
+
+Log Entry : 12:05:16 vendredi 27 novembre 2020
+  :
+  :Affichage plein écran + bloquer Hotkeys
+-------------------------------
