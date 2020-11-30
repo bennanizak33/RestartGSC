@@ -391,27 +391,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\BENNANI Zakaria\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Faris\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\BENNANI Zakaria\\Source\\repos\\RestartGSC\\ExecutionWPF\\ExecutionWPF.csproj",
+      "projectUniqueName": "C:\\Source\\Repos\\RestartGSC\\ExecutionWPF\\ExecutionWPF.csproj",
       "projectName": "ExecutionWPF",
-      "projectPath": "C:\\Users\\BENNANI Zakaria\\Source\\repos\\RestartGSC\\ExecutionWPF\\ExecutionWPF.csproj",
-      "packagesPath": "C:\\Users\\BENNANI Zakaria\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\BENNANI Zakaria\\Source\\repos\\RestartGSC\\ExecutionWPF\\obj\\",
+      "projectPath": "C:\\Source\\Repos\\RestartGSC\\ExecutionWPF\\ExecutionWPF.csproj",
+      "packagesPath": "C:\\Users\\Faris\\.nuget\\packages\\",
+      "outputPath": "C:\\Source\\Repos\\RestartGSC\\ExecutionWPF\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\BENNANI Zakaria\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\Faris\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -422,10 +415,9 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\BENNANI Zakaria\\Source\\repos\\RestartGSC\\IO.Swagger\\IO.Swagger.csproj": {
-              "projectPath": "C:\\Users\\BENNANI Zakaria\\Source\\repos\\RestartGSC\\IO.Swagger\\IO.Swagger.csproj"
+            "C:\\Source\\Repos\\RestartGSC\\IO.Swagger\\IO.Swagger.csproj": {
+              "projectPath": "C:\\Source\\Repos\\RestartGSC\\IO.Swagger\\IO.Swagger.csproj"
             }
           }
         }
@@ -438,7 +430,6 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
-        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Microsoft.Extensions.Configuration": {
             "target": "Package",
@@ -475,7 +466,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
