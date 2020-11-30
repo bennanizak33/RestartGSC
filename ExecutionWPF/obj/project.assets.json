@@ -415,6 +415,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {
             "C:\\Source\\Repos\\RestartGSC\\IO.Swagger\\IO.Swagger.csproj": {
               "projectPath": "C:\\Source\\Repos\\RestartGSC\\IO.Swagger\\IO.Swagger.csproj"
@@ -430,6 +431,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Microsoft.Extensions.Configuration": {
             "target": "Package",
@@ -466,7 +468,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
