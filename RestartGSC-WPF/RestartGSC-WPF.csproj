@@ -98,7 +98,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="PsInfo.exe" />
+    <Content Include="PsInfo.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
