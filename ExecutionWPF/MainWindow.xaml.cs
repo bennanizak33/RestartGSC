@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Configuration;
 using System.Diagnostics;
+using System.Globalization;
+using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -18,6 +22,7 @@ namespace ExecutionWPF
         private readonly string cheminBatchError = @"" + ConfigurationManager.AppSettings["CheminBatchError"];
         private readonly bool isFeatureLockScreen= bool.Parse(ConfigurationManager.AppSettings["isFeatureLockScreen"]);
         private Window window;
+        private int exitCode = 0;
 
         public MainWindow()
         {          
@@ -30,17 +35,35 @@ namespace ExecutionWPF
         private void executerSucces_Click(object sender, RoutedEventArgs e)
         {
             _logWriter.LogWrite($"exécution Batch : {cheminBatchSucces}");
-            int exitCode = processBatch(cheminBatchSucces);
+            string output = processBatch(cheminBatchSucces);
             _logWriter.LogWrite($"exit code Batch : {exitCode}");
 
             if (exitCode == 0 /*un deuxieme exitCode*/)
             {
+                var numbers = Regex.Split(output, @"\D+")
+                              .Where(s => !string.IsNullOrWhiteSpace(s))
+                              .Select(s => int.Parse(s)).ToList();
+
+                var dt = DateTime.Now.AddDays(-numbers[0]).AddHours(-numbers[1])
+                         .AddMinutes(-numbers[2]).AddSeconds(-numbers[3]);
+
+
+                //DateTime dt = DateTime.Parse(output, "dd mm yyyy");
                 //Logique après retour positif
                 /*
                  * exitCode == DcMaster
                  * ExitCode2 == DcCoordnateur
                  */
 
+                //Execute psinfo here
+                //Retrieve Response uptime string
+                //Convert format to Timespan
+                //Substract timespan from current date
+                //If it was 15 days ago or more, then reboot
+
+                _logWriter.LogWrite($"date dernier upTime : {dt}");
+
+#if !DEBUG
                 var api = new IO.Swagger.Api.AuthorizationsApi();
 
                 try
@@ -52,19 +75,19 @@ namespace ExecutionWPF
 
                     throw;
                 }
-
-                // Log
+                 // Log
 
                 // blocage screen
 
                 // commande de redemarrage
+#endif
             }
         }
     
         private void executerError_Click(object sender, RoutedEventArgs e)
         {
             _logWriter.LogWrite($"exécution Batch : {cheminBatchError}");
-            int exitCode = processBatch(cheminBatchError);
+            string output = processBatch(cheminBatchError);
             _logWriter.LogWrite($"exit code Batch : {exitCode}");
 
             if (exitCode == -1)
@@ -106,9 +129,12 @@ namespace ExecutionWPF
             e.Handled = true;
         }
     
-        private int processBatch(string cheminBatch)
+        private string processBatch(string cheminBatch)
         {
-            ProcessStartInfo processInfo = new ProcessStartInfo(cheminBatch)
+            var path = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+
+
+            ProcessStartInfo processInfo = new ProcessStartInfo(path + "\\" + cheminBatch)
             {
                 UseShellExecute = false,
                 CreateNoWindow = false,
@@ -122,7 +148,7 @@ namespace ExecutionWPF
             string output = process.StandardOutput.ReadToEnd();
             string error = process.StandardError.ReadToEnd();
 
-            int exitCode = process.ExitCode;
+            exitCode = process.ExitCode;
 
             _logWriter.LogWrite(Environment.NewLine +  
                                 "output>>" + (String.IsNullOrEmpty(output) ? "(none)" : output) + Environment.NewLine +
@@ -130,7 +156,7 @@ namespace ExecutionWPF
                                  "ExitCode>> " + exitCode.ToString());
             process.Close();
 
-            return exitCode;
+            return output;
         }
 
         [DllImport("user32")]

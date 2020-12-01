@@ -67,3 +67,41 @@ C:\Users\BENNANI Zakaria\Source\repos\McDonalds\ExecutionWPF\obj\Debug\netcoreap
 C:\Users\BENNANI Zakaria\Source\repos\McDonalds\ExecutionWPF\obj\Debug\netcoreapp3.1\ExecutionWPF.dll
 C:\Users\BENNANI Zakaria\Source\repos\McDonalds\ExecutionWPF\obj\Debug\netcoreapp3.1\ExecutionWPF.pdb
 C:\Users\BENNANI Zakaria\Source\repos\McDonalds\ExecutionWPF\obj\Debug\netcoreapp3.1\ExecutionWPF.genruntimeconfig.cache
+C:\Source\Repos\RestartGSC\ExecutionWPF\bin\Debug\netcoreapp3.1\App.config
+C:\Source\Repos\RestartGSC\ExecutionWPF\bin\Debug\netcoreapp3.1\ExecutionWPF.exe
+C:\Source\Repos\RestartGSC\ExecutionWPF\bin\Debug\netcoreapp3.1\ExecutionWPF.dll.config
+C:\Source\Repos\RestartGSC\ExecutionWPF\bin\Debug\netcoreapp3.1\ExecutionWPF.deps.json
+C:\Source\Repos\RestartGSC\ExecutionWPF\bin\Debug\netcoreapp3.1\ExecutionWPF.runtimeconfig.json
+C:\Source\Repos\RestartGSC\ExecutionWPF\bin\Debug\netcoreapp3.1\ExecutionWPF.runtimeconfig.dev.json
+C:\Source\Repos\RestartGSC\ExecutionWPF\bin\Debug\netcoreapp3.1\ExecutionWPF.dll
+C:\Source\Repos\RestartGSC\ExecutionWPF\bin\Debug\netcoreapp3.1\ExecutionWPF.pdb
+C:\Source\Repos\RestartGSC\ExecutionWPF\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Source\Repos\RestartGSC\ExecutionWPF\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Source\Repos\RestartGSC\ExecutionWPF\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Source\Repos\RestartGSC\ExecutionWPF\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Json.dll
+C:\Source\Repos\RestartGSC\ExecutionWPF\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Source\Repos\RestartGSC\ExecutionWPF\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Source\Repos\RestartGSC\ExecutionWPF\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Source\Repos\RestartGSC\ExecutionWPF\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Source\Repos\RestartGSC\ExecutionWPF\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Source\Repos\RestartGSC\ExecutionWPF\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Source\Repos\RestartGSC\ExecutionWPF\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+C:\Source\Repos\RestartGSC\ExecutionWPF\bin\Debug\netcoreapp3.1\IO.Swagger.dll
+C:\Source\Repos\RestartGSC\ExecutionWPF\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Source\Repos\RestartGSC\ExecutionWPF\bin\Debug\netcoreapp3.1\RestSharp.dll
+C:\Source\Repos\RestartGSC\ExecutionWPF\bin\Debug\netcoreapp3.1\IO.Swagger.pdb
+C:\Source\Repos\RestartGSC\ExecutionWPF\bin\Debug\netcoreapp3.1\Newtonsoft.Json.xml
+C:\Source\Repos\RestartGSC\ExecutionWPF\bin\Debug\netcoreapp3.1\RestSharp.xml
+C:\Source\Repos\RestartGSC\ExecutionWPF\obj\Debug\netcoreapp3.1\ExecutionWPF.csprojAssemblyReference.cache
+C:\Source\Repos\RestartGSC\ExecutionWPF\obj\Debug\netcoreapp3.1\MainWindow.baml
+C:\Source\Repos\RestartGSC\ExecutionWPF\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+C:\Source\Repos\RestartGSC\ExecutionWPF\obj\Debug\netcoreapp3.1\App.g.cs
+C:\Source\Repos\RestartGSC\ExecutionWPF\obj\Debug\netcoreapp3.1\ExecutionWPF_MarkupCompile.cache
+C:\Source\Repos\RestartGSC\ExecutionWPF\obj\Debug\netcoreapp3.1\ExecutionWPF.g.resources
+C:\Source\Repos\RestartGSC\ExecutionWPF\obj\Debug\netcoreapp3.1\ExecutionWPF.AssemblyInfoInputs.cache
+C:\Source\Repos\RestartGSC\ExecutionWPF\obj\Debug\netcoreapp3.1\ExecutionWPF.AssemblyInfo.cs
+C:\Source\Repos\RestartGSC\ExecutionWPF\obj\Debug\netcoreapp3.1\ExecutionWPF.csproj.CoreCompileInputs.cache
+C:\Source\Repos\RestartGSC\ExecutionWPF\obj\Debug\netcoreapp3.1\ExecutionWPF.csproj.CopyComplete
+C:\Source\Repos\RestartGSC\ExecutionWPF\obj\Debug\netcoreapp3.1\ExecutionWPF.dll
+C:\Source\Repos\RestartGSC\ExecutionWPF\obj\Debug\netcoreapp3.1\ExecutionWPF.pdb
+C:\Source\Repos\RestartGSC\ExecutionWPF\obj\Debug\netcoreapp3.1\ExecutionWPF.genruntimeconfig.cache

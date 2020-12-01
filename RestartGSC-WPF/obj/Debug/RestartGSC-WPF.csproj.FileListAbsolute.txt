@@ -1,0 +1,15 @@
+C:\Source\Repos\RestartGSC\RestartGSC-WPF\bin\Debug\RestartGSC-WPF.exe.config
+C:\Source\Repos\RestartGSC\RestartGSC-WPF\bin\Debug\RestartGSC-WPF.exe
+C:\Source\Repos\RestartGSC\RestartGSC-WPF\bin\Debug\RestartGSC-WPF.pdb
+C:\Source\Repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC-WPF.csprojAssemblyReference.cache
+C:\Source\Repos\RestartGSC\RestartGSC-WPF\obj\Debug\MainWindow.baml
+C:\Source\Repos\RestartGSC\RestartGSC-WPF\obj\Debug\MainWindow.g.cs
+C:\Source\Repos\RestartGSC\RestartGSC-WPF\obj\Debug\App.g.cs
+C:\Source\Repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC-WPF_Content.g.cs
+C:\Source\Repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC-WPF_MarkupCompile.cache
+C:\Source\Repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC-WPF.g.resources
+C:\Source\Repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC_WPF.Properties.Resources.resources
+C:\Source\Repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC-WPF.csproj.GenerateResource.cache
+C:\Source\Repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC-WPF.csproj.CoreCompileInputs.cache
+C:\Source\Repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC-WPF.exe
+C:\Source\Repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC-WPF.pdb
