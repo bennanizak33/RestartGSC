@@ -31,12 +31,10 @@ namespace IO.Swagger.Api
         /// 
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dcMaster"></param>
-        /// <param name="deploymentCoord"></param>
         /// <param name="ipAddress"></param>
         /// <param name="upTimes"></param>
         /// <returns>AuthorizationModel</returns>
-        AuthorizationModel AuthorizationsPostAuthorization (string dcMaster, string deploymentCoord, string ipAddress, DateTime? upTimes);
+        AuthorizationModel AuthorizationsPostAuthorization (string ipAddress, DateTime? upTimes);
 
         /// <summary>
         /// 
@@ -45,12 +43,10 @@ namespace IO.Swagger.Api
         /// 
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dcMaster"></param>
-        /// <param name="deploymentCoord"></param>
         /// <param name="ipAddress"></param>
         /// <param name="upTimes"></param>
         /// <returns>ApiResponse of AuthorizationModel</returns>
-        ApiResponse<AuthorizationModel> AuthorizationsPostAuthorizationWithHttpInfo (string dcMaster, string deploymentCoord, string ipAddress, DateTime? upTimes);
+        ApiResponse<AuthorizationModel> AuthorizationsPostAuthorizationWithHttpInfo (string ipAddress, DateTime? upTimes);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -60,12 +56,10 @@ namespace IO.Swagger.Api
         /// 
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dcMaster"></param>
-        /// <param name="deploymentCoord"></param>
         /// <param name="ipAddress"></param>
         /// <param name="upTimes"></param>
         /// <returns>Task of AuthorizationModel</returns>
-        System.Threading.Tasks.Task<AuthorizationModel> AuthorizationsPostAuthorizationAsync (string dcMaster, string deploymentCoord, string ipAddress, DateTime? upTimes);
+        System.Threading.Tasks.Task<AuthorizationModel> AuthorizationsPostAuthorizationAsync (string ipAddress, DateTime? upTimes);
 
         /// <summary>
         /// 
@@ -74,12 +68,10 @@ namespace IO.Swagger.Api
         /// 
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dcMaster"></param>
-        /// <param name="deploymentCoord"></param>
         /// <param name="ipAddress"></param>
         /// <param name="upTimes"></param>
         /// <returns>Task of ApiResponse (AuthorizationModel)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AuthorizationModel>> AuthorizationsPostAuthorizationAsyncWithHttpInfo (string dcMaster, string deploymentCoord, string ipAddress, DateTime? upTimes);
+        System.Threading.Tasks.Task<ApiResponse<AuthorizationModel>> AuthorizationsPostAuthorizationAsyncWithHttpInfo (string ipAddress, DateTime? upTimes);
         #endregion Asynchronous Operations
     }
 
@@ -184,14 +176,12 @@ namespace IO.Swagger.Api
         ///  
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dcMaster"></param>
-        /// <param name="deploymentCoord"></param>
         /// <param name="ipAddress"></param>
         /// <param name="upTimes"></param>
         /// <returns>AuthorizationModel</returns>
-        public AuthorizationModel AuthorizationsPostAuthorization (string dcMaster, string deploymentCoord, string ipAddress, DateTime? upTimes)
+        public AuthorizationModel AuthorizationsPostAuthorization (string ipAddress, DateTime? upTimes)
         {
-             ApiResponse<AuthorizationModel> localVarResponse = AuthorizationsPostAuthorizationWithHttpInfo(dcMaster, deploymentCoord, ipAddress, upTimes);
+             ApiResponse<AuthorizationModel> localVarResponse = AuthorizationsPostAuthorizationWithHttpInfo(ipAddress, upTimes);
              return localVarResponse.Data;
         }
 
@@ -199,19 +189,11 @@ namespace IO.Swagger.Api
         ///  
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dcMaster"></param>
-        /// <param name="deploymentCoord"></param>
         /// <param name="ipAddress"></param>
         /// <param name="upTimes"></param>
         /// <returns>ApiResponse of AuthorizationModel</returns>
-        public ApiResponse< AuthorizationModel > AuthorizationsPostAuthorizationWithHttpInfo (string dcMaster, string deploymentCoord, string ipAddress, DateTime? upTimes)
+        public ApiResponse< AuthorizationModel > AuthorizationsPostAuthorizationWithHttpInfo (string ipAddress, DateTime? upTimes)
         {
-            // verify the required parameter 'dcMaster' is set
-            if (dcMaster == null)
-                throw new ApiException(400, "Missing required parameter 'dcMaster' when calling AuthorizationsApi->AuthorizationsPostAuthorization");
-            // verify the required parameter 'deploymentCoord' is set
-            if (deploymentCoord == null)
-                throw new ApiException(400, "Missing required parameter 'deploymentCoord' when calling AuthorizationsApi->AuthorizationsPostAuthorization");
             // verify the required parameter 'ipAddress' is set
             if (ipAddress == null)
                 throw new ApiException(400, "Missing required parameter 'ipAddress' when calling AuthorizationsApi->AuthorizationsPostAuthorization");
@@ -243,8 +225,6 @@ namespace IO.Swagger.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (dcMaster != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "dcMaster", dcMaster)); // query parameter
-            if (deploymentCoord != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "deploymentCoord", deploymentCoord)); // query parameter
             if (ipAddress != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "ipAddress", ipAddress)); // query parameter
             if (upTimes != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "upTimes", upTimes)); // query parameter
 
@@ -271,14 +251,12 @@ namespace IO.Swagger.Api
         ///  
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dcMaster"></param>
-        /// <param name="deploymentCoord"></param>
         /// <param name="ipAddress"></param>
         /// <param name="upTimes"></param>
         /// <returns>Task of AuthorizationModel</returns>
-        public async System.Threading.Tasks.Task<AuthorizationModel> AuthorizationsPostAuthorizationAsync (string dcMaster, string deploymentCoord, string ipAddress, DateTime? upTimes)
+        public async System.Threading.Tasks.Task<AuthorizationModel> AuthorizationsPostAuthorizationAsync (string ipAddress, DateTime? upTimes)
         {
-             ApiResponse<AuthorizationModel> localVarResponse = await AuthorizationsPostAuthorizationAsyncWithHttpInfo(dcMaster, deploymentCoord, ipAddress, upTimes);
+             ApiResponse<AuthorizationModel> localVarResponse = await AuthorizationsPostAuthorizationAsyncWithHttpInfo(ipAddress, upTimes);
              return localVarResponse.Data;
 
         }
@@ -287,19 +265,11 @@ namespace IO.Swagger.Api
         ///  
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dcMaster"></param>
-        /// <param name="deploymentCoord"></param>
         /// <param name="ipAddress"></param>
         /// <param name="upTimes"></param>
         /// <returns>Task of ApiResponse (AuthorizationModel)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AuthorizationModel>> AuthorizationsPostAuthorizationAsyncWithHttpInfo (string dcMaster, string deploymentCoord, string ipAddress, DateTime? upTimes)
+        public async System.Threading.Tasks.Task<ApiResponse<AuthorizationModel>> AuthorizationsPostAuthorizationAsyncWithHttpInfo (string ipAddress, DateTime? upTimes)
         {
-            // verify the required parameter 'dcMaster' is set
-            if (dcMaster == null)
-                throw new ApiException(400, "Missing required parameter 'dcMaster' when calling AuthorizationsApi->AuthorizationsPostAuthorization");
-            // verify the required parameter 'deploymentCoord' is set
-            if (deploymentCoord == null)
-                throw new ApiException(400, "Missing required parameter 'deploymentCoord' when calling AuthorizationsApi->AuthorizationsPostAuthorization");
             // verify the required parameter 'ipAddress' is set
             if (ipAddress == null)
                 throw new ApiException(400, "Missing required parameter 'ipAddress' when calling AuthorizationsApi->AuthorizationsPostAuthorization");
@@ -331,8 +301,6 @@ namespace IO.Swagger.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (dcMaster != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "dcMaster", dcMaster)); // query parameter
-            if (deploymentCoord != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "deploymentCoord", deploymentCoord)); // query parameter
             if (ipAddress != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "ipAddress", ipAddress)); // query parameter
             if (upTimes != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "upTimes", upTimes)); // query parameter
 

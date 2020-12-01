@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Configuration;
 using System.Diagnostics;
-using System.Globalization;
-using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace ExecutionWPF
@@ -23,6 +19,9 @@ namespace ExecutionWPF
         private readonly bool isFeatureLockScreen= bool.Parse(ConfigurationManager.AppSettings["isFeatureLockScreen"]);
         private Window window;
         private int exitCode = 0;
+        private IO.Swagger.Api.AuthorizationsApi AuthorizationsApi;
+        private IO.Swagger.Api.ServerEventsApi ServerEventsApi;
+
 
         public MainWindow()
         {          
@@ -30,54 +29,77 @@ namespace ExecutionWPF
             _logWriter = new LogWriter();
             _logWriter.LogWrite("Début exécution");
             _globalKeyboardHook = new GlobalKeyboardHook();
+
+            AuthorizationsApi = new IO.Swagger.Api.AuthorizationsApi();
+            ServerEventsApi = new IO.Swagger.Api.ServerEventsApi();
         }
         
         private void executerSucces_Click(object sender, RoutedEventArgs e)
         {
+            IO.Swagger.Model.AuthorizationModel authorizationResult = null;
+
             _logWriter.LogWrite($"exécution Batch : {cheminBatchSucces}");
             string output = processBatch(cheminBatchSucces);
             _logWriter.LogWrite($"exit code Batch : {exitCode}");
 
             if (exitCode == 0 /*un deuxieme exitCode*/)
             {
-                // 00 days
-                int dayIndex = output.IndexOf("day");
-                string c = (output.Substring(output.IndexOf("day") - 3, 3)).Trim();
-                var number = int.Parse(c);
-                           
+                var uptime = int.Parse((output.Substring(output.IndexOf("day") - 3, 3)).Trim());
 
-                //var dt = DateTime.Now.AddDays(-numbers[0]).AddHours(-numbers[1])
-                //         .AddMinutes(-numbers[2]).AddSeconds(-numbers[3]);
+                DateTime LastBootTime = DateTime.Now.AddDays(-uptime);
+                //TODO
+                //var uptime = UptimeHelper.GetUptime("ServerName");
 
+                //TODO
+                //string ServerIpAddress = IpAddressHelper.CcToIp(ServerName);
 
-                //DateTime dt = DateTime.Parse(output, "dd mm yyyy");
-                //Logique après retour positif
-                /*
-                 * exitCode == DcMaster
-                 * ExitCode2 == DcCoordnateur
-                 */
-
-                //Execute psinfo here
-                //Retrieve Response uptime string
-                //Convert format to Timespan
-                //Substract timespan from current date
-                //If it was 15 days ago or more, then reboot
-
-                _logWriter.LogWrite($"date dernier upTime : {number} days ago");
-
-#if !DEBUG
-                var api = new IO.Swagger.Api.AuthorizationsApi();
+                _logWriter.LogWrite($"date dernier upTime : {uptime} days ago");
 
                 try
                 {
-                    var result = api.AuthorizationsPostAuthorization("DcMaster1", "DeploymentCoord1", "10.19.15.12", DateTime.Now.AddDays(-12));
+                    authorizationResult = AuthorizationsApi.AuthorizationsPostAuthorization(/*ServerIpAddress*/"10.19.15.12", LastBootTime);
                 }
-                catch (Exception ex )
+                catch (Exception ex)
                 {
 
                     throw;
                 }
-                 // Log
+
+                IO.Swagger.Model.ServerEvent event_ = null;
+
+                if (authorizationResult.StatusCode == "OK")
+                {
+                    event_ = new IO.Swagger.Model.ServerEvent()
+                    {
+                        Event = IO.Swagger.Model.ServerEvent.EventEnum.NUMBER_1
+                        // Insert the correct values
+                    };
+                }
+
+                // Specifié la raison du rejet  Event.demandeRejete + DAte du rejet
+                event_ = new IO.Swagger.Model.ServerEvent()
+                {
+                    Event = IO.Swagger.Model.ServerEvent.EventEnum.NUMBER_3
+                    // Insert the correct values
+                };
+
+                // restart
+
+                try
+                {
+                    
+                    ServerEventsApi.ServerEventsPostServerEvent(event_);
+                }
+                catch (Exception ex)
+                {
+
+                    throw;
+                }
+
+
+#if DEBUG
+
+                // Log
 
                 // blocage screen
 

@@ -10,5 +10,6 @@ namespace McDonalds.DAL
 		Blocage,
 		Redemarrage,
 		Maintenance,
+		DemandeRejete
 	}
 }

@@ -64,6 +64,8 @@
     </Compile>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="GlobalKeyboardHook.cs" />
+    <Compile Include="Helpers\IpAddressHelper.cs" />
+    <Compile Include="Helpers\UptimeHelper.cs" />
     <Compile Include="LogWriter.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -101,6 +103,12 @@
     <Content Include="PsInfo.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IO.Swagger\IO.Swagger.csproj">
+      <Project>{9eee6955-1329-4a0d-84b3-ba6fe9150489}</Project>
+      <Name>IO.Swagger</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

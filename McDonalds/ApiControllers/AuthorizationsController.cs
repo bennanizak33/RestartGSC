@@ -18,8 +18,15 @@ namespace McDonalds.ApiControllers
 
         // POST: api/ServerEvents
         [ResponseType(typeof(AuthorizationModel))]
-        public IHttpActionResult PostAuthorization(string dcMaster, string deploymentCoord, string ipAddress, DateTime upTimes)
+        public IHttpActionResult PostAuthorization(string ipAddress, DateTime upTimes)
         {
+
+            //TODO
+            // check priority before start traitement
+            // si on tombe sur le server avec la priorité on doit le logger 
+            // au niveau de la base (ci qua vo dir lors du prochain appel il aura 
+            // pas le status priorité ) et donner l'autorization de redemarrage
+
             if (!IpAddressRestriction.IsValid(db, ipAddress, out int restaurantId))
             {
                 return Ok(new AuthorizationModel()
