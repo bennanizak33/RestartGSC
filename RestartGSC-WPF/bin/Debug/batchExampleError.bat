@@ -1,4 +1,4 @@
 @echo off
 title Batch Script avec retour Positif
-echo Bienvenue
+echo Bienvenue %1
 exit /b -1

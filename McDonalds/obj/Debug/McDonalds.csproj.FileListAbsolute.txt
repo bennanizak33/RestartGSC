@@ -199,6 +199,7 @@ C:\Source\Repos\RestartGSC\McDonalds\bin\fr\System.Web.Razor.resources.dll
 C:\Source\Repos\RestartGSC\McDonalds\bin\fr\System.Web.WebPages.resources.dll
 C:\Source\Repos\RestartGSC\McDonalds\bin\fr\System.Web.WebPages.Deployment.resources.dll
 C:\Source\Repos\RestartGSC\McDonalds\bin\fr\System.Web.WebPages.Razor.resources.dll
+C:\Source\Repos\RestartGSC\McDonalds\obj\Debug\McDonalds.csprojAssemblyReference.cache
 C:\Source\Repos\RestartGSC\McDonalds\obj\Debug\McDonalds.Migrations.InitialCreate.resources
 C:\Source\Repos\RestartGSC\McDonalds\obj\Debug\McDonalds.Migrations.AddHolydaysTable.resources
 C:\Source\Repos\RestartGSC\McDonalds\obj\Debug\McDonalds.Migrations.AutoIncrementPK.resources

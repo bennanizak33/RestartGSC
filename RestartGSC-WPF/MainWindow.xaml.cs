@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestartGSC_WPF.Helpers;
+using System;
 using System.Configuration;
 using System.Diagnostics;
 using System.Reflection;
@@ -39,16 +40,14 @@ namespace ExecutionWPF
             IO.Swagger.Model.AuthorizationModel authorizationResult = null;
 
             _logWriter.LogWrite($"exécution Batch : {cheminBatchSucces}");
-            string output = processBatch(cheminBatchSucces);
+            string output = UptimeHelper.processBatch(cheminBatchSucces, "FRPARWEBDEV24", _logWriter, ref exitCode);
             _logWriter.LogWrite($"exit code Batch : {exitCode}");
 
             if (exitCode == 0 /*un deuxieme exitCode*/)
             {
-                var uptime = int.Parse((output.Substring(output.IndexOf("day") - 3, 3)).Trim());
+                var uptime = UptimeHelper.GetUptime(output);
 
                 DateTime LastBootTime = DateTime.Now.AddDays(-uptime);
-                //TODO
-                //var uptime = UptimeHelper.GetUptime("ServerName");
 
                 //TODO
                 //string ServerIpAddress = IpAddressHelper.CcToIp(ServerName);
@@ -111,7 +110,7 @@ namespace ExecutionWPF
         private void executerError_Click(object sender, RoutedEventArgs e)
         {
             _logWriter.LogWrite($"exécution Batch : {cheminBatchError}");
-            string output = processBatch(cheminBatchError);
+            string output = UptimeHelper.processBatch(cheminBatchError, "", _logWriter, ref exitCode);
             _logWriter.LogWrite($"exit code Batch : {exitCode}");
 
             if (exitCode == -1)
@@ -152,37 +151,6 @@ namespace ExecutionWPF
         {
             e.Handled = true;
         }
-    
-        private string processBatch(string cheminBatch)
-        {
-            var path = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-
-
-            ProcessStartInfo processInfo = new ProcessStartInfo(path + "\\" + cheminBatch)
-            {
-                UseShellExecute = false,
-                CreateNoWindow = false,
-                RedirectStandardError = true,
-                RedirectStandardOutput = true,
-                RedirectStandardInput = true
-            };
-            processInfo.UseShellExecute = false;
-            Process process = Process.Start(processInfo);
-            process.WaitForExit();
-            string output = process.StandardOutput.ReadToEnd();
-            string error = process.StandardError.ReadToEnd();
-
-            exitCode = process.ExitCode;
-
-            _logWriter.LogWrite(Environment.NewLine +  
-                                "output>>" + (String.IsNullOrEmpty(output) ? "(none)" : output) + Environment.NewLine +
-                                 "error>>" + (String.IsNullOrEmpty(error) ? "(none)" : error) + Environment.NewLine +
-                                 "ExitCode>> " + exitCode.ToString());
-            process.Close();
-
-            return output;
-        }
-
         [DllImport("user32")]
         public static extern void LockWorkStation();
     }
