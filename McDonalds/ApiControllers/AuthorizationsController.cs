@@ -15,52 +15,46 @@ namespace McDonalds.ApiControllers
     public class AuthorizationsController : ApiController
     {
         private McDonaldsContext db = new McDonaldsContext();
+        private Restaurant Restaurant = null;
 
         // POST: api/ServerEvents
         [ResponseType(typeof(AuthorizationModel))]
         public IHttpActionResult PostAuthorization(string ipAddress, DateTime upTimes)
         {
-
-            //TODO
-            // check priority before start traitement
-            // si on tombe sur le server avec la priorité on doit le logger 
-            // au niveau de la base (ci qua vo dir lors du prochain appel il aura 
-            // pas le status priorité ) et donner l'autorization de redemarrage
-
             if (!IpAddressRestriction.IsValid(db, ipAddress, out int restaurantId))
             {
                 return Ok(new AuthorizationModel()
                 {
-                    StatusCode = "",
+                    StatusCode = "KO",
                     Detail = "Addresse Ip invalide"
                 });
             }
 
-            var result = db
+            Restaurant = db
                 .Restaurants
                 .FirstOrDefault(r => r.RestaurantId == restaurantId);
 
+            Restaurant.ServerEvents = new List<ServerEvent>();
+
+
             if (!TwoWeekRestartRestriction.CheckLastServerUpTimes(db, ipAddress, upTimes))
             {
-                result.ServerEvents = new List<ServerEvent>()
+                Restaurant.ServerEvents.Add(new ServerEvent()
                 {
-                     new ServerEvent()
-                     {
-                         Date = DateTime.Now,
-                         Event = Event.Redemarrage,
-                         Detail = "Dernier Redemarrage Serveur",
-                         UpTimes = upTimes
-                     }
-                };
-
-                db.SaveChanges();
+                    Date = DateTime.Now,
+                    Event = Event.Redemarrage,
+                    Detail = "Dernier Redemarrage Serveur",
+                    UpTimes = upTimes
+                });
             }
 
-            if (TwoWeekRestartRestriction.IsValid(db,ipAddress,DateTime.Now))
+            db.SaveChanges();
+
+            if (!TwoWeekRestartRestriction.IsValid(db,ipAddress,DateTime.Now))
             {
                 return Ok( new AuthorizationModel()
                 {
-                    StatusCode = "",
+                    StatusCode = "KO",
                     Detail = "Le dernier demmarage est inferieur a 15 jours"
                 });
             }
@@ -69,7 +63,7 @@ namespace McDonalds.ApiControllers
             {
                 return Ok(new AuthorizationModel()
                 {
-                    StatusCode = "",
+                    StatusCode = "KO",
                     Detail = "Vous avez depasser le nombre de redemmarage authorisé"
                 });
             }
@@ -79,14 +73,36 @@ namespace McDonalds.ApiControllers
 
                 return Ok(new AuthorizationModel()
                 {
-                    StatusCode = "",
+                    StatusCode = "KO",
                     Detail = "Impossible d'executer un redemarrage aujourd'hui"
                 });
             }
-            
+
+            if (!PriorityRestriction.CheckPriority(db, ipAddress))
+            {
+                Restaurant.ServerEvents.Add
+                (
+                     new ServerEvent()
+                     {
+                         Date = DateTime.Now,
+                         Event = Event.DemandeRejete,
+                         Detail = "Demande de redemarrage non prioritaire",
+                         UpTimes = upTimes
+                     }
+                );
+
+                db.SaveChanges();
+
+                return Ok(new AuthorizationModel()
+                {
+                    StatusCode = "KO",
+                    Detail = "Demande de redemarrage non prioritaire"
+                });
+            }
+
             return Ok(new AuthorizationModel()
             {
-                StatusCode = "",
+                StatusCode = "OK",
                 Detail = "Vous pouvez redemarrer la machine distante"
             });
         }

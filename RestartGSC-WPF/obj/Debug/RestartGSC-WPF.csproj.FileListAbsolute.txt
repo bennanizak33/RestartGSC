@@ -13,3 +13,26 @@ C:\Source\Repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC-WPF.csproj.Genera
 C:\Source\Repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC-WPF.csproj.CoreCompileInputs.cache
 C:\Source\Repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC-WPF.exe
 C:\Source\Repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC-WPF.pdb
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\bin\Debug\PsInfo.exe
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\bin\Debug\RestartGSC-WPF.exe.config
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\bin\Debug\RestartGSC-WPF.exe
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\bin\Debug\RestartGSC-WPF.pdb
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\bin\Debug\IO.Swagger.dll
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\bin\Debug\Newtonsoft.Json.dll
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\bin\Debug\RestSharp.dll
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\bin\Debug\IO.Swagger.pdb
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\bin\Debug\Newtonsoft.Json.xml
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\bin\Debug\RestSharp.xml
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC-WPF.csprojAssemblyReference.cache
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\obj\Debug\MainWindow.baml
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\obj\Debug\MainWindow.g.cs
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\obj\Debug\App.g.cs
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC-WPF_Content.g.cs
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC-WPF_MarkupCompile.cache
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC-WPF.g.resources
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC_WPF.Properties.Resources.resources
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC-WPF.csproj.GenerateResource.cache
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC-WPF.csproj.CoreCompileInputs.cache
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC-WPF.csproj.CopyComplete
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC-WPF.exe
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC-WPF.pdb

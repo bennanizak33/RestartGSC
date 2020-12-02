@@ -37,6 +37,24 @@
         "deprecated": false
       }
     },
+    "/api/Priorities": {
+      "get": {
+        "tags": [ "Priorities" ],
+        "operationId": "Priorities_GetPriorities",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/Restaurant" }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
     "/api/ServerEvents": {
       "get": {
         "tags": [ "ServerEvents" ],
@@ -230,30 +248,6 @@
         "Detail": { "type": "string" }
       }
     },
-    "ServerEvent": {
-      "type": "object",
-      "properties": {
-        "ServerEventId": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "Event": {
-          "format": "int32",
-          "enum": [ 0, 1, 2 ],
-          "type": "integer"
-        },
-        "Date": {
-          "format": "date-time",
-          "type": "string"
-        },
-        "UpTimes": {
-          "format": "date-time",
-          "type": "string"
-        },
-        "Detail": { "type": "string" },
-        "Restaurant": { "$ref": "#/definitions/Restaurant" }
-      }
-    },
     "Restaurant": {
       "type": "object",
       "properties": {
@@ -289,6 +283,30 @@
           "type": "array",
           "items": { "$ref": "#/definitions/ServerEvent" }
         }
+      }
+    },
+    "ServerEvent": {
+      "type": "object",
+      "properties": {
+        "ServerEventId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Event": {
+          "format": "int32",
+          "enum": [ 0, 1, 2, 3 ],
+          "type": "integer"
+        },
+        "Date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "UpTimes": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Detail": { "type": "string" },
+        "Restaurant": { "$ref": "#/definitions/Restaurant" }
       }
     }
   }
