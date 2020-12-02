@@ -53,11 +53,11 @@ namespace IO.Swagger.Model
             /// </summary>
             
             NUMBER_2 = 2,
-
+            
             /// <summary>
-            /// Enum NUMBER_2 for value: 2
+            /// Enum NUMBER_3 for value: 3
             /// </summary>
-
+            
             NUMBER_3 = 3
         }
 

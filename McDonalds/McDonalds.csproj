@@ -184,11 +184,13 @@
     <Compile Include="DAL\Restaurant.cs" />
     <Compile Include="Domain\IpAddressRestriction.cs" />
     <Compile Include="Domain\MaxRestartRestriction.cs" />
+    <Compile Include="Domain\PriorityRestriction.cs" />
     <Compile Include="Domain\TwoWeekRestartRestriction.cs" />
     <Compile Include="Domain\StartingDateRestriction.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ExcelParserHelper.cs" />
     <Compile Include="Migrations\202011201439549_InitialCreate.cs" />
     <Compile Include="Migrations\202011201439549_InitialCreate.designer.cs">
       <DependentUpon>202011201439549_InitialCreate.cs</DependentUpon>
