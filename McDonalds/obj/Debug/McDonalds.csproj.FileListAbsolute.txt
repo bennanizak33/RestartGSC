@@ -313,3 +313,10 @@ C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\obj\Debug\McDonalds.c
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\obj\Debug\McDonalds.csproj.CopyComplete
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\obj\Debug\McDonalds.dll
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\obj\Debug\McDonalds.pdb
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\App_Data\PlanificationDeploiement.xlsx
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\ExcelDataReader.DataSet.dll
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\ExcelDataReader.dll
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\ExcelDataReader.pdb
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\ExcelDataReader.xml
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\ExcelDataReader.DataSet.pdb
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\ExcelDataReader.DataSet.xml

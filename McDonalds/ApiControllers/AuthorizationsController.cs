@@ -78,6 +78,15 @@ namespace McDonalds.ApiControllers
                 });
             }
 
+            if (DeploiementDateRestriction.CheckDeploiementDate(Restaurant.RestaurantId,DateTime.Now))
+            {
+                return Ok(new AuthorizationModel()
+                {
+                    StatusCode = "KO",
+                    Detail = "Impossible d'executer un redemarrage aujourd'hui, un deploiement est prevu"
+                });
+            }
+
             if (!PriorityRestriction.CheckPriority(db, ipAddress))
             {
                 Restaurant.ServerEvents.Add
