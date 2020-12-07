@@ -14,10 +14,6 @@ namespace McDonalds.ApiControllers
 		// GET api/values
 		public IEnumerable<string> Get()
 		{
-			string fichier = @"C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\App_Data\PlanificationDeploiement.xlsx";
-
-			ExcelParserHelper.CheckDeploimentDateFromExcelFile(fichier, "31",DateTime.Now);
-
 			return new string[] { "value1", "value2" };
 		}
 

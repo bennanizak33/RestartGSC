@@ -64,5 +64,39 @@ namespace McDonalds.Helpers
 
             return model;
         }
+
+        public static DataSet ReadExcelFile(string fileName)
+        {
+            #region Excel
+
+            FileInfo file = new FileInfo(fileName);
+
+            string nomFichier = file.FullName;
+
+            IExcelDataReader excelReader = null;
+
+            try
+            {
+                FileStream stream = File.Open(nomFichier, FileMode.Open, FileAccess.Read);
+
+                excelReader = Path.GetExtension(nomFichier).ToLower() == ".xls"
+                    ? ExcelReaderFactory.CreateBinaryReader(stream)
+                    : ExcelReaderFactory.CreateOpenXmlReader(stream);
+
+                return excelReader.AsDataSet();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (excelReader != null && !excelReader.IsClosed)
+                    excelReader.Close();
+            }
+
+            #endregion Excel
+
+        }
     }
 }

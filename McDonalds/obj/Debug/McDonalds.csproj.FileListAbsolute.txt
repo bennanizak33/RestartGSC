@@ -208,6 +208,7 @@ C:\Source\Repos\RestartGSC\McDonalds\obj\Debug\McDonalds.csproj.CoreCompileInput
 C:\Source\Repos\RestartGSC\McDonalds\obj\Debug\McDonalds.csproj.CopyComplete
 C:\Source\Repos\RestartGSC\McDonalds\obj\Debug\McDonalds.dll
 C:\Source\Repos\RestartGSC\McDonalds\obj\Debug\McDonalds.pdb
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\App_Data\PlanificationDeploiement.xlsx
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\McDonalds.dll.config
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\McDonalds.dll
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\McDonalds.pdb
@@ -263,6 +264,8 @@ C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\roslyn\VBCSCompil
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\Antlr3.Runtime.dll
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\EntityFramework.dll
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\EntityFramework.SqlServer.dll
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\ExcelDataReader.DataSet.dll
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\ExcelDataReader.dll
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\Newtonsoft.Json.dll
@@ -281,6 +284,10 @@ C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\WebActivatorEx.dl
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\WebGrease.dll
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\EntityFramework.xml
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\EntityFramework.SqlServer.xml
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\ExcelDataReader.pdb
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\ExcelDataReader.xml
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\ExcelDataReader.DataSet.pdb
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\ExcelDataReader.DataSet.xml
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\Newtonsoft.Json.xml
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\System.Net.Http.Formatting.xml
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\System.Web.Helpers.xml
@@ -313,10 +320,3 @@ C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\obj\Debug\McDonalds.c
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\obj\Debug\McDonalds.csproj.CopyComplete
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\obj\Debug\McDonalds.dll
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\obj\Debug\McDonalds.pdb
-C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\App_Data\PlanificationDeploiement.xlsx
-C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\ExcelDataReader.DataSet.dll
-C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\ExcelDataReader.dll
-C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\ExcelDataReader.pdb
-C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\ExcelDataReader.xml
-C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\ExcelDataReader.DataSet.pdb
-C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\bin\ExcelDataReader.DataSet.xml

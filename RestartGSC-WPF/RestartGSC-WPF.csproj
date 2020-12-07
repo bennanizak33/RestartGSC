@@ -68,6 +68,7 @@
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="GlobalKeyboardHook.cs" />
     <Compile Include="Helpers\IpAddressHelper.cs" />
+    <Compile Include="Helpers\PingHelper.cs" />
     <Compile Include="Helpers\UptimeHelper.cs" />
     <Compile Include="LogWriter.cs" />
     <Compile Include="MainWindow.xaml.cs">

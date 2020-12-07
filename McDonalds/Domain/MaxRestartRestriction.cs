@@ -15,7 +15,7 @@ namespace McDonalds.Domain
 			return context
 				.ServerEvents
 				.AsNoTracking()
-				.Where(se => se.Date.Date == dateTime.Date && se.Event == Event.Redemarrage)
+				.Where(se => se.Date.Date == dateTime.Date && se.Event == Event.RedemarrageOK)
 				.Count() < AppSettings.ReadSetting(AppSettingConstant.MaxRestartPerDay, 0);
 		}
     }

@@ -199,6 +199,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ExcelParserHelper.cs" />
+    <Compile Include="Helpers\IpAddressHelper.cs" />
     <Compile Include="Migrations\202011201439549_InitialCreate.cs" />
     <Compile Include="Migrations\202011201439549_InitialCreate.designer.cs">
       <DependentUpon>202011201439549_InitialCreate.cs</DependentUpon>
@@ -213,6 +214,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\Seeds\HolydaysSeed.cs" />
+    <Compile Include="Migrations\Seeds\RestaurantsSeed.cs" />
     <Compile Include="Models\AuthorizationModel.cs" />
     <Compile Include="Models\DeploimentDateModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,4 +1,6 @@
-﻿using McDonalds.Helpers;
+﻿using McDonalds.App_Start;
+using McDonalds.Constants;
+using McDonalds.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +12,14 @@ namespace McDonalds.Domain
     {
         public static bool CheckDeploiementDate(int restaurantId, DateTime currentDate)
         {
-            string fichier = @"C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\McDonalds\App_Data\PlanificationDeploiement.xlsx";
-
-            return ExcelParserHelper.CheckDeploimentDateFromExcelFile(fichier, restaurantId, currentDate).DeploimentDate.HasValue ;
+            return ExcelParserHelper
+                .CheckDeploimentDateFromExcelFile
+                (
+                    AppSettings.ReadSetting<string>(AppSettingConstant.ListRestaurantFile, default(string)),
+                    restaurantId,
+                    currentDate
+                )
+                .DeploimentDate.HasValue;
         }
     }
 }

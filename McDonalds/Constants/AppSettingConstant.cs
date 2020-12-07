@@ -12,5 +12,7 @@ namespace McDonalds.Constants
         public const string AuthorizedWeekDate = "AuthorizedWeekDate";
 
         public const string MaxRestartPerTwoWeeks = "MaxRestartPerTwoWeeks";
+
+        public const string ListRestaurantFile = "ListRestaurantFile";
     }
 }

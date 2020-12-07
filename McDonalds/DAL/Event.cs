@@ -8,7 +8,8 @@ namespace McDonalds.DAL
 	public enum Event
 	{
 		Blocage,
-		Redemarrage,
+		RedemarrageOK,
+		RedemarrageNOK,
 		Maintenance,
 		DemandeRejete
 	}

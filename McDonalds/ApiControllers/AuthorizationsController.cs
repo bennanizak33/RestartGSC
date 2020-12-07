@@ -42,7 +42,7 @@ namespace McDonalds.ApiControllers
                 Restaurant.ServerEvents.Add(new ServerEvent()
                 {
                     Date = DateTime.Now,
-                    Event = Event.Redemarrage,
+                    Event = Event.RedemarrageOK,
                     Detail = "Dernier Redemarrage Serveur",
                     UpTimes = upTimes
                 });
