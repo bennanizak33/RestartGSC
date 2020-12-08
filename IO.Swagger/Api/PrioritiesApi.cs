@@ -44,27 +44,6 @@ namespace IO.Swagger.Api
         /// <returns>ApiResponse of List&lt;Restaurant&gt;</returns>
         ApiResponse<List<Restaurant>> PrioritiesGetPrioritiesWithHttpInfo ();
         #endregion Synchronous Operations
-        #region Asynchronous Operations
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of List&lt;Restaurant&gt;</returns>
-        System.Threading.Tasks.Task<List<Restaurant>> PrioritiesGetPrioritiesAsync ();
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (List&lt;Restaurant&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Restaurant>>> PrioritiesGetPrioritiesAsyncWithHttpInfo ();
-        #endregion Asynchronous Operations
     }
 
     /// <summary>
@@ -211,70 +190,6 @@ namespace IO.Swagger.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("PrioritiesGetPriorities", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<List<Restaurant>>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (List<Restaurant>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<Restaurant>)));
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of List&lt;Restaurant&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Restaurant>> PrioritiesGetPrioritiesAsync ()
-        {
-             ApiResponse<List<Restaurant>> localVarResponse = await PrioritiesGetPrioritiesAsyncWithHttpInfo();
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (List&lt;Restaurant&gt;)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<List<Restaurant>>> PrioritiesGetPrioritiesAsyncWithHttpInfo ()
-        {
-
-            var localVarPath = "/api/Priorities";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json",
-                "text/json",
-                "application/xml",
-                "text/xml"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 

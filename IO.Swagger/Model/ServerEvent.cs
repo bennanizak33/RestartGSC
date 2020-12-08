@@ -58,7 +58,25 @@ namespace IO.Swagger.Model
             /// Enum NUMBER_3 for value: 3
             /// </summary>
             
-            NUMBER_3 = 3
+            NUMBER_3 = 3,
+            
+            /// <summary>
+            /// Enum NUMBER_4 for value: 4
+            /// </summary>
+            
+            NUMBER_4 = 4,
+            
+            /// <summary>
+            /// Enum NUMBER_5 for value: 5
+            /// </summary>
+            
+            NUMBER_5 = 5,
+            
+            /// <summary>
+            /// Enum NUMBER_6 for value: 6
+            /// </summary>
+            
+            NUMBER_6 = 6
         }
 
         /// <summary>

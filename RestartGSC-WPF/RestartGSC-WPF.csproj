@@ -110,7 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IO.Swagger\IO.Swagger.csproj">
-      <Project>{4660c279-e215-4b16-86d9-5855319aec24}</Project>
+      <Project>{8b74928f-3b96-4bad-94d3-f3f6bfd028dd}</Project>
       <Name>IO.Swagger</Name>
     </ProjectReference>
   </ItemGroup>

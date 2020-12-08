@@ -79,7 +79,19 @@ namespace ExecutionWPF
                     // 10 d'attentes appconfig
 
                     // ping + log api  "PingHelper Class" if result OK add serverEventapi Call, if not OK garder l'ecran bloqué et update ecran contacter votre mainteneur + apicall serverEvent
+                    var ping = PingHelper.CheckAddress("10.21.207.0");
 
+                    if (ping.Status == System.Net.NetworkInformation.IPStatus.Success)
+                    {
+                        event_ = new IO.Swagger.Model.ServerEvent()
+                        {
+                            Restaurant = 
+                            Event = IO.Swagger.Model.ServerEvent.EventEnum.NUMBER_1,
+                            Date = DateTime.Now,
+                            UpTimes = LastBootTime,
+                            Detail = "Le serveur a bien redemarré"
+                        };
+                    }
                     // if OK call xmlRPc attendre 5 minutes is ok update ecran + update api + deblocage ecran
 
                 }

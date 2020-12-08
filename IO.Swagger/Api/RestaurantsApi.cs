@@ -21,7 +21,7 @@ namespace IO.Swagger.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IServerEventsApi : IApiAccessor
+    public interface IRestaurantsApi : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
@@ -32,8 +32,8 @@ namespace IO.Swagger.Api
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
-        /// <returns>ServerEvent</returns>
-        ServerEvent ServerEventsGetServerEvent (int? id);
+        /// <returns>Restaurant</returns>
+        Restaurant RestaurantsDeleteRestaurant (int? id);
 
         /// <summary>
         /// 
@@ -43,8 +43,8 @@ namespace IO.Swagger.Api
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
-        /// <returns>ApiResponse of ServerEvent</returns>
-        ApiResponse<ServerEvent> ServerEventsGetServerEventWithHttpInfo (int? id);
+        /// <returns>ApiResponse of Restaurant</returns>
+        ApiResponse<Restaurant> RestaurantsDeleteRestaurantWithHttpInfo (int? id);
         /// <summary>
         /// 
         /// </summary>
@@ -52,8 +52,9 @@ namespace IO.Swagger.Api
         /// 
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;ServerEvent&gt;</returns>
-        List<ServerEvent> ServerEventsGetServerEvents ();
+        /// <param name="ipAddress"></param>
+        /// <returns>Restaurant</returns>
+        Restaurant RestaurantsGetRestaurant (string ipAddress);
 
         /// <summary>
         /// 
@@ -62,8 +63,9 @@ namespace IO.Swagger.Api
         /// 
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;ServerEvent&gt;</returns>
-        ApiResponse<List<ServerEvent>> ServerEventsGetServerEventsWithHttpInfo ();
+        /// <param name="ipAddress"></param>
+        /// <returns>ApiResponse of Restaurant</returns>
+        ApiResponse<Restaurant> RestaurantsGetRestaurantWithHttpInfo (string ipAddress);
         /// <summary>
         /// 
         /// </summary>
@@ -71,9 +73,9 @@ namespace IO.Swagger.Api
         /// 
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="serverEvent"></param>
-        /// <returns>ServerEvent</returns>
-        ServerEvent ServerEventsPostServerEvent (ServerEvent serverEvent);
+        /// <param name="restaurant"></param>
+        /// <returns>Restaurant</returns>
+        Restaurant RestaurantsPostRestaurant (Restaurant restaurant);
 
         /// <summary>
         /// 
@@ -82,9 +84,9 @@ namespace IO.Swagger.Api
         /// 
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="serverEvent"></param>
-        /// <returns>ApiResponse of ServerEvent</returns>
-        ApiResponse<ServerEvent> ServerEventsPostServerEventWithHttpInfo (ServerEvent serverEvent);
+        /// <param name="restaurant"></param>
+        /// <returns>ApiResponse of Restaurant</returns>
+        ApiResponse<Restaurant> RestaurantsPostRestaurantWithHttpInfo (Restaurant restaurant);
         /// <summary>
         /// 
         /// </summary>
@@ -93,9 +95,9 @@ namespace IO.Swagger.Api
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
-        /// <param name="serverEvent"></param>
+        /// <param name="restaurant"></param>
         /// <returns></returns>
-        void ServerEventsPutServerEvent (int? id, ServerEvent serverEvent);
+        void RestaurantsPutRestaurant (int? id, Restaurant restaurant);
 
         /// <summary>
         /// 
@@ -105,24 +107,24 @@ namespace IO.Swagger.Api
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
-        /// <param name="serverEvent"></param>
+        /// <param name="restaurant"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> ServerEventsPutServerEventWithHttpInfo (int? id, ServerEvent serverEvent);
+        ApiResponse<Object> RestaurantsPutRestaurantWithHttpInfo (int? id, Restaurant restaurant);
         #endregion Synchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class ServerEventsApi : IServerEventsApi
+    public partial class RestaurantsApi : IRestaurantsApi
     {
         private IO.Swagger.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ServerEventsApi"/> class.
+        /// Initializes a new instance of the <see cref="RestaurantsApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public ServerEventsApi(String basePath)
+        public RestaurantsApi(String basePath)
         {
             this.Configuration = new IO.Swagger.Client.Configuration { BasePath = basePath };
 
@@ -130,12 +132,12 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ServerEventsApi"/> class
+        /// Initializes a new instance of the <see cref="RestaurantsApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public ServerEventsApi(IO.Swagger.Client.Configuration configuration = null)
+        public RestaurantsApi(IO.Swagger.Client.Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
                 this.Configuration = IO.Swagger.Client.Configuration.Default;
@@ -213,10 +215,10 @@ namespace IO.Swagger.Api
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
-        /// <returns>ServerEvent</returns>
-        public ServerEvent ServerEventsGetServerEvent (int? id)
+        /// <returns>Restaurant</returns>
+        public Restaurant RestaurantsDeleteRestaurant (int? id)
         {
-             ApiResponse<ServerEvent> localVarResponse = ServerEventsGetServerEventWithHttpInfo(id);
+             ApiResponse<Restaurant> localVarResponse = RestaurantsDeleteRestaurantWithHttpInfo(id);
              return localVarResponse.Data;
         }
 
@@ -225,14 +227,14 @@ namespace IO.Swagger.Api
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
-        /// <returns>ApiResponse of ServerEvent</returns>
-        public ApiResponse< ServerEvent > ServerEventsGetServerEventWithHttpInfo (int? id)
+        /// <returns>ApiResponse of Restaurant</returns>
+        public ApiResponse< Restaurant > RestaurantsDeleteRestaurantWithHttpInfo (int? id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling ServerEventsApi->ServerEventsGetServerEvent");
+                throw new ApiException(400, "Missing required parameter 'id' when calling RestaurantsApi->RestaurantsDeleteRestaurant");
 
-            var localVarPath = "/api/ServerEvents/{id}";
+            var localVarPath = "/api/Restaurants/{id}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -261,30 +263,31 @@ namespace IO.Swagger.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ServerEventsGetServerEvent", localVarResponse);
+                Exception exception = ExceptionFactory("RestaurantsDeleteRestaurant", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ServerEvent>(localVarStatusCode,
+            return new ApiResponse<Restaurant>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ServerEvent) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ServerEvent)));
+                (Restaurant) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Restaurant)));
         }
 
         /// <summary>
         ///  
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;ServerEvent&gt;</returns>
-        public List<ServerEvent> ServerEventsGetServerEvents ()
+        /// <param name="ipAddress"></param>
+        /// <returns>Restaurant</returns>
+        public Restaurant RestaurantsGetRestaurant (string ipAddress)
         {
-             ApiResponse<List<ServerEvent>> localVarResponse = ServerEventsGetServerEventsWithHttpInfo();
+             ApiResponse<Restaurant> localVarResponse = RestaurantsGetRestaurantWithHttpInfo(ipAddress);
              return localVarResponse.Data;
         }
 
@@ -292,11 +295,15 @@ namespace IO.Swagger.Api
         ///  
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;ServerEvent&gt;</returns>
-        public ApiResponse< List<ServerEvent> > ServerEventsGetServerEventsWithHttpInfo ()
+        /// <param name="ipAddress"></param>
+        /// <returns>ApiResponse of Restaurant</returns>
+        public ApiResponse< Restaurant > RestaurantsGetRestaurantWithHttpInfo (string ipAddress)
         {
+            // verify the required parameter 'ipAddress' is set
+            if (ipAddress == null)
+                throw new ApiException(400, "Missing required parameter 'ipAddress' when calling RestaurantsApi->RestaurantsGetRestaurant");
 
-            var localVarPath = "/api/ServerEvents";
+            var localVarPath = "/api/Restaurants";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -320,6 +327,7 @@ namespace IO.Swagger.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (ipAddress != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "ipAddress", ipAddress)); // query parameter
 
 
             // make the HTTP request
@@ -331,24 +339,24 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ServerEventsGetServerEvents", localVarResponse);
+                Exception exception = ExceptionFactory("RestaurantsGetRestaurant", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<List<ServerEvent>>(localVarStatusCode,
+            return new ApiResponse<Restaurant>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (List<ServerEvent>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<ServerEvent>)));
+                (Restaurant) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Restaurant)));
         }
 
         /// <summary>
         ///  
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="serverEvent"></param>
-        /// <returns>ServerEvent</returns>
-        public ServerEvent ServerEventsPostServerEvent (ServerEvent serverEvent)
+        /// <param name="restaurant"></param>
+        /// <returns>Restaurant</returns>
+        public Restaurant RestaurantsPostRestaurant (Restaurant restaurant)
         {
-             ApiResponse<ServerEvent> localVarResponse = ServerEventsPostServerEventWithHttpInfo(serverEvent);
+             ApiResponse<Restaurant> localVarResponse = RestaurantsPostRestaurantWithHttpInfo(restaurant);
              return localVarResponse.Data;
         }
 
@@ -356,15 +364,15 @@ namespace IO.Swagger.Api
         ///  
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="serverEvent"></param>
-        /// <returns>ApiResponse of ServerEvent</returns>
-        public ApiResponse< ServerEvent > ServerEventsPostServerEventWithHttpInfo (ServerEvent serverEvent)
+        /// <param name="restaurant"></param>
+        /// <returns>ApiResponse of Restaurant</returns>
+        public ApiResponse< Restaurant > RestaurantsPostRestaurantWithHttpInfo (Restaurant restaurant)
         {
-            // verify the required parameter 'serverEvent' is set
-            if (serverEvent == null)
-                throw new ApiException(400, "Missing required parameter 'serverEvent' when calling ServerEventsApi->ServerEventsPostServerEvent");
+            // verify the required parameter 'restaurant' is set
+            if (restaurant == null)
+                throw new ApiException(400, "Missing required parameter 'restaurant' when calling RestaurantsApi->RestaurantsPostRestaurant");
 
-            var localVarPath = "/api/ServerEvents";
+            var localVarPath = "/api/Restaurants";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -393,13 +401,13 @@ namespace IO.Swagger.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (serverEvent != null && serverEvent.GetType() != typeof(byte[]))
+            if (restaurant != null && restaurant.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(serverEvent); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(restaurant); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = serverEvent; // byte array
+                localVarPostBody = restaurant; // byte array
             }
 
 
@@ -412,13 +420,13 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ServerEventsPostServerEvent", localVarResponse);
+                Exception exception = ExceptionFactory("RestaurantsPostRestaurant", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ServerEvent>(localVarStatusCode,
+            return new ApiResponse<Restaurant>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ServerEvent) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ServerEvent)));
+                (Restaurant) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Restaurant)));
         }
 
         /// <summary>
@@ -426,11 +434,11 @@ namespace IO.Swagger.Api
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
-        /// <param name="serverEvent"></param>
+        /// <param name="restaurant"></param>
         /// <returns></returns>
-        public void ServerEventsPutServerEvent (int? id, ServerEvent serverEvent)
+        public void RestaurantsPutRestaurant (int? id, Restaurant restaurant)
         {
-             ServerEventsPutServerEventWithHttpInfo(id, serverEvent);
+             RestaurantsPutRestaurantWithHttpInfo(id, restaurant);
         }
 
         /// <summary>
@@ -438,18 +446,18 @@ namespace IO.Swagger.Api
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id"></param>
-        /// <param name="serverEvent"></param>
+        /// <param name="restaurant"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> ServerEventsPutServerEventWithHttpInfo (int? id, ServerEvent serverEvent)
+        public ApiResponse<Object> RestaurantsPutRestaurantWithHttpInfo (int? id, Restaurant restaurant)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling ServerEventsApi->ServerEventsPutServerEvent");
-            // verify the required parameter 'serverEvent' is set
-            if (serverEvent == null)
-                throw new ApiException(400, "Missing required parameter 'serverEvent' when calling ServerEventsApi->ServerEventsPutServerEvent");
+                throw new ApiException(400, "Missing required parameter 'id' when calling RestaurantsApi->RestaurantsPutRestaurant");
+            // verify the required parameter 'restaurant' is set
+            if (restaurant == null)
+                throw new ApiException(400, "Missing required parameter 'restaurant' when calling RestaurantsApi->RestaurantsPutRestaurant");
 
-            var localVarPath = "/api/ServerEvents/{id}";
+            var localVarPath = "/api/Restaurants/{id}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -475,13 +483,13 @@ namespace IO.Swagger.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (serverEvent != null && serverEvent.GetType() != typeof(byte[]))
+            if (restaurant != null && restaurant.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(serverEvent); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(restaurant); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = serverEvent; // byte array
+                localVarPostBody = restaurant; // byte array
             }
 
 
@@ -494,7 +502,7 @@ namespace IO.Swagger.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ServerEventsPutServerEvent", localVarResponse);
+                Exception exception = ExceptionFactory("RestaurantsPutRestaurant", localVarResponse);
                 if (exception != null) throw exception;
             }
 

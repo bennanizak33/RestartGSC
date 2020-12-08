@@ -12,12 +12,12 @@ OpenAPI spec version: v1
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4660C279-E215-4B16-86D9-5855319AEC24}</ProjectGuid>
+    <ProjectGuid>{8B74928F-3B96-4BAD-94D3-F3F6BFD028DD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>IO.Swagger</RootNamespace>
     <AssemblyName>IO.Swagger</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -48,22 +48,22 @@ OpenAPI spec version: v1
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
     <Reference Include="Newtonsoft.Json">
-      <HintPath Condition="Exists('$(SolutionDir)\packages')">$(SolutionDir)\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <HintPath Condition="Exists('..\packages')">..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <HintPath Condition="Exists('..\..\packages')">..\..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <HintPath Condition="Exists('..\..\vendor')">..\..\vendor\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath Condition="Exists('$(SolutionDir)\packages')">$(SolutionDir)\packages\Newtonsoft.Json.10.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <HintPath Condition="Exists('..\packages')">..\packages\Newtonsoft.Json.10.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <HintPath Condition="Exists('..\..\packages')">..\..\packages\Newtonsoft.Json.10.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <HintPath Condition="Exists('..\..\vendor')">..\..\vendor\Newtonsoft.Json.10.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="JsonSubTypes">
-      <HintPath Condition="Exists('$(SolutionDir)\packages')">$(SolutionDir)\packages\JsonSubTypes.1.2.0\lib\net45\JsonSubTypes.dll</HintPath>
-      <HintPath Condition="Exists('..\packages')">..\packages\JsonSubTypes.1.2.0\lib\net45\JsonSubTypes.dll</HintPath>
-      <HintPath Condition="Exists('..\..\packages')">..\..\packages\JsonSubTypes.1.2.0\lib\net45\JsonSubTypes.dll</HintPath>
-      <HintPath Condition="Exists('..\..\vendor')">..\..\vendor\JsonSubTypes.1.2.0\lib\net45\JsonSubTypes.dll</HintPath>
+      <HintPath Condition="Exists('$(SolutionDir)\packages')">$(SolutionDir)\packages\JsonSubTypes.1.2.0\lib\net40\JsonSubTypes.dll</HintPath>
+      <HintPath Condition="Exists('..\packages')">..\packages\JsonSubTypes.1.2.0\lib\net40\JsonSubTypes.dll</HintPath>
+      <HintPath Condition="Exists('..\..\packages')">..\..\packages\JsonSubTypes.1.2.0\lib\net40\JsonSubTypes.dll</HintPath>
+      <HintPath Condition="Exists('..\..\vendor')">..\..\vendor\JsonSubTypes.1.2.0\lib\net40\JsonSubTypes.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp">
-        <HintPath Condition="Exists('$(SolutionDir)\packages')">$(SolutionDir)\packages\RestSharp.105.1.0\lib\net45\RestSharp.dll</HintPath>
-        <HintPath Condition="Exists('..\packages')">..\packages\RestSharp.105.1.0\lib\net45\RestSharp.dll</HintPath>
-        <HintPath Condition="Exists('..\..\packages')">..\..\packages\RestSharp.105.1.0\lib\net45\RestSharp.dll</HintPath>
-      <HintPath Condition="Exists('..\..\vendor')">..\..\vendor\RestSharp.105.1.0\lib\net45\RestSharp.dll</HintPath>
+        <HintPath Condition="Exists('$(SolutionDir)\packages')">$(SolutionDir)\packages\RestSharp.105.1.0\lib\net4\RestSharp.dll</HintPath>
+        <HintPath Condition="Exists('..\packages')">..\packages\RestSharp.105.1.0\lib\net4\RestSharp.dll</HintPath>
+        <HintPath Condition="Exists('..\..\packages')">..\..\packages\RestSharp.105.1.0\lib\net4\RestSharp.dll</HintPath>
+      <HintPath Condition="Exists('..\..\vendor')">..\..\vendor\RestSharp.105.1.0\lib\net4\RestSharp.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

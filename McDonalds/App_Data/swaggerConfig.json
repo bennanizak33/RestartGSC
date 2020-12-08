@@ -55,6 +55,97 @@
         "deprecated": false
       }
     },
+    "/api/Restaurants": {
+      "get": {
+        "tags": [ "Restaurants" ],
+        "operationId": "Restaurants_GetRestaurant",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "ipAddress",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Restaurant" }
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [ "Restaurants" ],
+        "operationId": "Restaurants_PostRestaurant",
+        "consumes": [ "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded" ],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "restaurant",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/Restaurant" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Restaurant" }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Restaurants/{id}": {
+      "put": {
+        "tags": [ "Restaurants" ],
+        "operationId": "Restaurants_PutRestaurant",
+        "consumes": [ "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded" ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "restaurant",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/Restaurant" }
+          }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [ "Restaurants" ],
+        "operationId": "Restaurants_DeleteRestaurant",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Restaurant" }
+          }
+        },
+        "deprecated": false
+      }
+    },
     "/api/ServerEvents": {
       "get": {
         "tags": [ "ServerEvents" ],
@@ -294,7 +385,7 @@
         },
         "Event": {
           "format": "int32",
-          "enum": [ 0, 1, 2, 3 ],
+          "enum": [ 0, 1, 2, 3, 4, 5, 6 ],
           "type": "integer"
         },
         "Date": {
