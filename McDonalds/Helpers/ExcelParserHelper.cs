@@ -16,7 +16,7 @@ namespace McDonalds.Helpers
             // exemple de la case 32 comme date de deploiement
             DeploimentDateModel model = new DeploimentDateModel()
             {
-                RestaurantId = restaurantId
+                RestaurantId = restaurantId,
             };
 
             #region Excel
@@ -56,7 +56,15 @@ namespace McDonalds.Helpers
             {
                 if ( Convert.ToInt32(deploiementTable.Rows[i][0]) == restaurantId)
                 {
-                    model.DeploimentDate = Convert.ToDateTime(deploiementTable.Rows[i][32]);
+                    for (int j = 1; j < deploiementTable.Columns.Count; j++)
+                    {
+                        if (deploiementTable.Rows[i][j] is DateTime && ((DateTime)deploiementTable.Rows[i][j]).Date == currentDate.Date)
+                        {
+                            model.DeploimentDate = Convert.ToDateTime(deploiementTable.Rows[i][j]);
+                            break;
+                        }
+                    }
+                    break;
                 }
             };
 

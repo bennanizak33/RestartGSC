@@ -43,7 +43,12 @@ namespace ExecutionWPF
             string output = UptimeHelper.processBatch(cheminBatchSucces, "FRPARWEBDEV24", _logWriter, ref exitCode);
             _logWriter.LogWrite($"exit code Batch : {exitCode}");
 
-            if (exitCode == 0 /*un deuxieme exitCode*/)
+            if (exitCode != 0)
+            {
+
+            }
+
+            if (exitCode == 0)
             {
                 var uptime = UptimeHelper.GetUptime(output);
 
@@ -54,15 +59,8 @@ namespace ExecutionWPF
 
                 _logWriter.LogWrite($"date dernier upTime : {uptime} days ago");
 
-                try
-                {
-                    authorizationResult = AuthorizationsApi.AuthorizationsPostAuthorization(/*ServerIpAddress*/"10.19.15.12", LastBootTime);
-                }
-                catch (Exception ex)
-                {
-
-                    throw;
-                }
+                //gestion des exceptions pour apres
+                authorizationResult = AuthorizationsApi.AuthorizationsPostAuthorization("10.21.207.0", LastBootTime);
 
                 IO.Swagger.Model.ServerEvent event_ = null;
 
@@ -73,16 +71,29 @@ namespace ExecutionWPF
                         Event = IO.Swagger.Model.ServerEvent.EventEnum.NUMBER_1
                         // Insert the correct values
                     };
+
+                    // restart
+
+                    // blocage de l'interface 
+
+                }
+                else
+                {
+                    // Specifié la raison du rejet  Event.demandeRejete + DAte du rejet
+                    event_ = new IO.Swagger.Model.ServerEvent()
+                    {
+                        Event = IO.Swagger.Model.ServerEvent.EventEnum.NUMBER_3
+                        // Insert the correct values
+                    };
                 }
 
-                // Specifié la raison du rejet  Event.demandeRejete + DAte du rejet
-                event_ = new IO.Swagger.Model.ServerEvent()
-                {
-                    Event = IO.Swagger.Model.ServerEvent.EventEnum.NUMBER_3
-                    // Insert the correct values
-                };
+                
 
-                // restart
+                
+
+                // 10 d'attentes appconfig
+
+                // ping + log api
 
                 try
                 {
