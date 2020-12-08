@@ -44,3 +44,6 @@ C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\obj\Debug\Restar
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC-WPF.csproj.CopyComplete
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC-WPF.exe
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC-WPF.pdb
+C:\Source\Repos\RestartGSC\RestartGSC-WPF\obj\Debug\bloquerWindow.g.cs
+C:\Source\Repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC-WPF_MarkupCompile.lref
+C:\Source\Repos\RestartGSC\RestartGSC-WPF\obj\Debug\bloquerWindow.baml
