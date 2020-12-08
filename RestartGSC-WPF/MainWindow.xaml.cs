@@ -72,9 +72,15 @@ namespace ExecutionWPF
                         // Insert the correct values
                     };
 
-                    // restart
-
                     // blocage de l'interface 
+
+                    // commande restart  .bat
+
+                    // 10 d'attentes appconfig
+
+                    // ping + log api  "PingHelper Class" if result OK add serverEventapi Call, if not OK garder l'ecran bloqué et update ecran contacter votre mainteneur + apicall serverEvent
+
+                    // if OK call xmlRPc attendre 5 minutes is ok update ecran + update api + deblocage ecran
 
                 }
                 else
@@ -91,9 +97,7 @@ namespace ExecutionWPF
 
                 
 
-                // 10 d'attentes appconfig
 
-                // ping + log api
 
                 try
                 {

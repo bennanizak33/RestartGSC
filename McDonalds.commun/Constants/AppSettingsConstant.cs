@@ -9,5 +9,7 @@ namespace McDonalds.commun.Constants
     public static class AppSettingsConstant
     {
         public const string ServerResponseTimeout = "ServerResponseTimeout";
+
+        public const string XmlRpcResponseTimeout = "XmlRpcResponseTimeout";
     }
 }
