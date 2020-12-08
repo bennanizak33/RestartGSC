@@ -1,10 +1,12 @@
-﻿using RestartGSC_WPF.Helpers;
+﻿using RestartGSC_WPF;
+using RestartGSC_WPF.Helpers;
 using System;
 using System.Configuration;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace ExecutionWPF
 {
@@ -14,11 +16,9 @@ namespace ExecutionWPF
     public partial class MainWindow : Window
     {
         private readonly LogWriter _logWriter;
-        private GlobalKeyboardHook _globalKeyboardHook;
         private readonly string cheminBatchSucces = @"" + ConfigurationManager.AppSettings["CheminBatchSucces"];
         private readonly string cheminBatchError = @"" + ConfigurationManager.AppSettings["CheminBatchError"];
         private readonly bool isFeatureLockScreen= bool.Parse(ConfigurationManager.AppSettings["isFeatureLockScreen"]);
-        private Window window;
         private int exitCode = 0;
         private IO.Swagger.Api.AuthorizationsApi AuthorizationsApi;
         private IO.Swagger.Api.ServerEventsApi ServerEventsApi;
@@ -29,7 +29,6 @@ namespace ExecutionWPF
             InitializeComponent();
             _logWriter = new LogWriter();
             _logWriter.LogWrite("Début exécution");
-            _globalKeyboardHook = new GlobalKeyboardHook();
 
             AuthorizationsApi = new IO.Swagger.Api.AuthorizationsApi();
             ServerEventsApi = new IO.Swagger.Api.ServerEventsApi();
@@ -60,8 +59,12 @@ namespace ExecutionWPF
                 _logWriter.LogWrite($"date dernier upTime : {uptime} days ago");
 
                 //gestion des exceptions pour apres
+#if !DEBUG
                 authorizationResult = AuthorizationsApi.AuthorizationsPostAuthorization("10.21.207.0", LastBootTime);
-
+#else
+                authorizationResult = new IO.Swagger.Model.AuthorizationModel();
+                authorizationResult.StatusCode = "OK";
+#endif
                 IO.Swagger.Model.ServerEvent event_ = null;
 
                 if (authorizationResult.StatusCode == "OK")
@@ -73,27 +76,9 @@ namespace ExecutionWPF
                     };
 
                     // blocage de l'interface 
-
-                    // commande restart  .bat
-
-                    // 10 d'attentes appconfig
-
-                    // ping + log api  "PingHelper Class" if result OK add serverEventapi Call, if not OK garder l'ecran bloqué et update ecran contacter votre mainteneur + apicall serverEvent
-                    var ping = PingHelper.CheckAddress("10.21.207.0");
-
-                    if (ping.Status == System.Net.NetworkInformation.IPStatus.Success)
-                    {
-                        event_ = new IO.Swagger.Model.ServerEvent()
-                        {
-                            Restaurant = 
-                            Event = IO.Swagger.Model.ServerEvent.EventEnum.NUMBER_1,
-                            Date = DateTime.Now,
-                            UpTimes = LastBootTime,
-                            Detail = "Le serveur a bien redemarré"
-                        };
-                    }
-                    // if OK call xmlRPc attendre 5 minutes is ok update ecran + update api + deblocage ecran
-
+                    var _bloquerWindow = new bloquerWindow(_logWriter);
+                    _bloquerWindow.Show();
+                    this.Close();
                 }
                 else
                 {
@@ -104,17 +89,11 @@ namespace ExecutionWPF
                         // Insert the correct values
                     };
                 }
-
-                
-
-                
-
-
-
                 try
                 {
-                    
+#if !DEBUG
                     ServerEventsApi.ServerEventsPostServerEvent(event_);
+#endif
                 }
                 catch (Exception ex)
                 {
@@ -144,27 +123,7 @@ namespace ExecutionWPF
             {
                 if (!isFeatureLockScreen)
                 {
-                    window = new Window
-                    {
-                        WindowStartupLocation = WindowStartupLocation.CenterScreen,
-#if !DEBUG
-                        //Plein écran pour tout cacher, à personnaliser
-                        WindowState = WindowState.Maximized,
-                        WindowStyle = WindowStyle.None
-#endif
-                    };
-                    // Hooks into all keys.
-                    _globalKeyboardHook.KeyboardPressed += OnKeyPressed;
-#if !DEBUG
-                    //Désactiver le vérouillage après 15 secondes pour pouvoir quitter (à être remplacé par un autre logique après)
-                    Task.Delay(new TimeSpan(0, 0, 15)).ContinueWith(o => 
-                    { _globalKeyboardHook.KeyboardPressed -= OnKeyPressed; 
-                        if (window != null)
-                            window.Close();
-                    });
-#endif
-                    _logWriter.LogWrite($"Affichage plein écran + bloquer Hotkeys");
-                    window.Show();
+                   
                 }
                 else
                 {
@@ -173,11 +132,7 @@ namespace ExecutionWPF
                 }
             }
         }
-
-        private void OnKeyPressed(object sender, GlobalKeyboardHookEventArgs e)
-        {
-            e.Handled = true;
-        }
+     
         [DllImport("user32")]
         public static extern void LockWorkStation();
     }
