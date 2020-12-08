@@ -4,7 +4,7 @@ using System.Configuration;
 using System.Linq;
 using System.Web;
 
-namespace McDonalds.App_Start
+namespace McDonalds.Commun
 {
     public class AppSettings
     {
