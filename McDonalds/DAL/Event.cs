@@ -11,6 +11,8 @@ namespace McDonalds.DAL
 		RedemarrageOK,
 		RedemarrageNOK,
 		Maintenance,
-		DemandeRejete
+		DemandeRejete,
+		PingOk,
+		PingNOK
 	}
 }

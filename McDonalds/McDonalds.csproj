@@ -146,6 +146,7 @@
   <ItemGroup>
     <Compile Include="ApiControllers\AuthorizationsController.cs" />
     <Compile Include="ApiControllers\PrioritiesController.cs" />
+    <Compile Include="ApiControllers\RestaurantsController.cs" />
     <Compile Include="ApiControllers\ServerEventsController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
