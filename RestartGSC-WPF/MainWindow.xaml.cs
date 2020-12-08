@@ -1,4 +1,5 @@
-﻿using RestartGSC_WPF;
+﻿using IO.Swagger.Model;
+using RestartGSC_WPF;
 using RestartGSC_WPF.Helpers;
 using System;
 using System.Configuration;
@@ -22,7 +23,10 @@ namespace ExecutionWPF
         private int exitCode = 0;
         private IO.Swagger.Api.AuthorizationsApi AuthorizationsApi;
         private IO.Swagger.Api.ServerEventsApi ServerEventsApi;
+        private IO.Swagger.Api.RestaurantsApi RestaurantsApi;
 
+        private string ServerName = "FRPARWEBDEV24";
+        private string ServerIpAddress = "10.21.207.0";
 
         public MainWindow()
         {          
@@ -36,10 +40,12 @@ namespace ExecutionWPF
         
         private void executerSucces_Click(object sender, RoutedEventArgs e)
         {
-            IO.Swagger.Model.AuthorizationModel authorizationResult = null;
+            AuthorizationModel authorizationResult = null;
+
+            Restaurant restaurant = null;
 
             _logWriter.LogWrite($"exécution Batch : {cheminBatchSucces}");
-            string output = UptimeHelper.processBatch(cheminBatchSucces, "FRPARWEBDEV24", _logWriter, ref exitCode);
+            string output = UptimeHelper.processBatch(cheminBatchSucces, ServerName, _logWriter, ref exitCode);
             _logWriter.LogWrite($"exit code Batch : {exitCode}");
 
             if (exitCode != 0)
@@ -59,8 +65,11 @@ namespace ExecutionWPF
                 _logWriter.LogWrite($"date dernier upTime : {uptime} days ago");
 
                 //gestion des exceptions pour apres
+
+
 #if !DEBUG
-                authorizationResult = AuthorizationsApi.AuthorizationsPostAuthorization("10.21.207.0", LastBootTime);
+                authorizationResult = AuthorizationsApi.AuthorizationsPostAuthorization(ServerIpAddress, LastBootTime);
+                restaurant = RestaurantsApi.RestaurantsGetRestaurant(ServerIpAddress);
 #else
                 authorizationResult = new IO.Swagger.Model.AuthorizationModel();
                 authorizationResult.StatusCode = "OK";
@@ -69,14 +78,8 @@ namespace ExecutionWPF
 
                 if (authorizationResult.StatusCode == "OK")
                 {
-                    event_ = new IO.Swagger.Model.ServerEvent()
-                    {
-                        Event = IO.Swagger.Model.ServerEvent.EventEnum.NUMBER_1
-                        // Insert the correct values
-                    };
-
                     // blocage de l'interface 
-                    var _bloquerWindow = new bloquerWindow(_logWriter);
+                    var _bloquerWindow = new bloquerWindow(_logWriter, ServerIpAddress, restaurant.RestaurantId.Value);
                     _bloquerWindow.Show();
                     this.Close();
                 }

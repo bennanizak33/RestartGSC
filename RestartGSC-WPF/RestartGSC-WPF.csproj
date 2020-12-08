@@ -120,6 +120,10 @@
       <Project>{8b74928f-3b96-4bad-94d3-f3f6bfd028dd}</Project>
       <Name>IO.Swagger</Name>
     </ProjectReference>
+    <ProjectReference Include="..\McDonalds.commun\McDonalds.commun.csproj">
+      <Project>{89739bd9-94a8-44e6-bfc2-6fb74c174f85}</Project>
+      <Name>McDonalds.commun</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
