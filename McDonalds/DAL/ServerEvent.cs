@@ -15,9 +15,9 @@ namespace McDonalds.DAL
 
 		public Event Event { get; set; }
 
-		public DateTime Date { get; set; }
+		public DateTime? Date { get; set; }
 
-        public DateTime UpTimes { get; set; }
+        public DateTime? UpTimes { get; set; }
 
         public string Detail { get; set; }
 

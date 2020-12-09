@@ -28,13 +28,12 @@ namespace McDonalds.Migrations.Seeds
                     restaurantList.Add(new Restaurant()
                     {
                         RestaurantId = Convert.ToInt32(deploiementTable.Rows[i][0]),
-                        ServerIpAddress = IpAddressHelper.CcToIp(Convert.ToInt32(deploiementTable.Rows[i][0])).ToString(),
+                        ServerIpAddress = IpAddressHelper.CcToIp(Convert.ToInt32(deploiementTable.Rows[i][0]),71).ToString(),
                         Nom = Convert.ToString(deploiementTable.Rows[i][1]),
-                        OpeningDate = DateTime.Now
                     });
                 }
 
-                context.Set<Restaurant>().AddOrUpdate(r => r.RestaurantId, restaurantList.ToArray());
+                context.Set<Restaurant>().AddOrUpdate(r => r.RestaurantId, restaurantList.Where(r => r.RestaurantId != 0).ToArray());
 
             }
             catch (Exception ex)

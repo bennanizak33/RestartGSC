@@ -1,4 +1,6 @@
 ﻿using IO.Swagger.Model;
+using McDonalds.commun.Constants;
+using McDonalds.Commun;
 using RestartGSC_WPF;
 using RestartGSC_WPF.Helpers;
 using System;
@@ -26,7 +28,7 @@ namespace ExecutionWPF
         private IO.Swagger.Api.RestaurantsApi RestaurantsApi;
 
         private string ServerName = "FRPARWEBDEV24";
-        private string ServerIpAddress = "10.21.207.0";
+        private string ServerIpAddress = "10.19.9.71";
 
         public MainWindow()
         {          
@@ -34,8 +36,9 @@ namespace ExecutionWPF
             _logWriter = new LogWriter();
             _logWriter.LogWrite("Début exécution");
 
-            AuthorizationsApi = new IO.Swagger.Api.AuthorizationsApi();
-            ServerEventsApi = new IO.Swagger.Api.ServerEventsApi();
+            AuthorizationsApi = new IO.Swagger.Api.AuthorizationsApi(AppSettings.ReadSetting<string>(AppSettingsConstant.RebootGSCApiURL,null));
+            ServerEventsApi = new IO.Swagger.Api.ServerEventsApi(AppSettings.ReadSetting<string>(AppSettingsConstant.RebootGSCApiURL, null));
+            RestaurantsApi = new IO.Swagger.Api.RestaurantsApi(AppSettings.ReadSetting<string>(AppSettingsConstant.RebootGSCApiURL, null));
         }
         
         private void executerSucces_Click(object sender, RoutedEventArgs e)
@@ -73,7 +76,7 @@ namespace ExecutionWPF
 #else
                 authorizationResult = new IO.Swagger.Model.AuthorizationModel();
                 authorizationResult.StatusCode = "OK";
-                restaurant = new Restaurant { RestaurantId = 10 };
+                restaurant = new Restaurant { RestaurantId = 16 , OpeningDate = DateTime.Now};
 #endif
                 IO.Swagger.Model.ServerEvent event_ = null;
 

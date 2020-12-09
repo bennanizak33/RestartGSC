@@ -1,15 +1,3 @@
-C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\IO.Swagger\bin\Debug\IO.Swagger.dll
-C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\IO.Swagger\bin\Debug\IO.Swagger.pdb
-C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\IO.Swagger\bin\Debug\JsonSubTypes.dll
-C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\IO.Swagger\bin\Debug\Newtonsoft.Json.dll
-C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\IO.Swagger\bin\Debug\RestSharp.dll
-C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\IO.Swagger\bin\Debug\Newtonsoft.Json.xml
-C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\IO.Swagger\bin\Debug\RestSharp.xml
-C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\IO.Swagger\obj\Debug\IO.Swagger.csprojAssemblyReference.cache
-C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\IO.Swagger\obj\Debug\IO.Swagger.csproj.CoreCompileInputs.cache
-C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\IO.Swagger\obj\Debug\IO.Swagger.csproj.CopyComplete
-C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\IO.Swagger\obj\Debug\IO.Swagger.dll
-C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\IO.Swagger\obj\Debug\IO.Swagger.pdb
 C:\Source\Repos\RestartGSC\IO.Swagger\bin\Debug\IO.Swagger.dll
 C:\Source\Repos\RestartGSC\IO.Swagger\bin\Debug\IO.Swagger.pdb
 C:\Source\Repos\RestartGSC\IO.Swagger\bin\Debug\JsonSubTypes.dll
@@ -22,3 +10,14 @@ C:\Source\Repos\RestartGSC\IO.Swagger\obj\Debug\IO.Swagger.csproj.CopyComplete
 C:\Source\Repos\RestartGSC\IO.Swagger\obj\Debug\IO.Swagger.dll
 C:\Source\Repos\RestartGSC\IO.Swagger\obj\Debug\IO.Swagger.pdb
 C:\Source\Repos\RestartGSC\IO.Swagger\obj\Debug\IO.Swagger.csprojAssemblyReference.cache
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\IO.Swagger\bin\Debug\IO.Swagger.dll
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\IO.Swagger\bin\Debug\IO.Swagger.pdb
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\IO.Swagger\bin\Debug\JsonSubTypes.dll
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\IO.Swagger\bin\Debug\Newtonsoft.Json.dll
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\IO.Swagger\bin\Debug\RestSharp.dll
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\IO.Swagger\bin\Debug\Newtonsoft.Json.xml
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\IO.Swagger\bin\Debug\RestSharp.xml
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\IO.Swagger\obj\Debug\IO.Swagger.csproj.CoreCompileInputs.cache
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\IO.Swagger\obj\Debug\IO.Swagger.csproj.CopyComplete
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\IO.Swagger\obj\Debug\IO.Swagger.dll
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\IO.Swagger\obj\Debug\IO.Swagger.pdb

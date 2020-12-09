@@ -11,5 +11,7 @@ namespace McDonalds.commun.Constants
         public const string ServerResponseTimeout = "ServerResponseTimeout";
 
         public const string XmlRpcResponseTimeout = "XmlRpcResponseTimeout";
+
+        public const string RebootGSCApiURL = "RebootGSCApiURL";
     }
 }

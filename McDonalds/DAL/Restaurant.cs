@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace McDonalds.DAL
 {
 	public class Restaurant
 	{
+		[Key]
+		[DatabaseGenerated(DatabaseGeneratedOption.None)]
 		public int RestaurantId { get; set; }
 
 		public string Nom { get; set; }
@@ -35,7 +39,7 @@ namespace McDonalds.DAL
 
 		public string FaxNumber { get; set; }
 
-		public DateTime OpeningDate { get; set; }
+		public DateTime? OpeningDate { get; set; }
 
 		public DateTime? PermanentClosureDate { get; set; }
 

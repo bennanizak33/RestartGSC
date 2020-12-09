@@ -200,17 +200,13 @@
     </Compile>
     <Compile Include="Helpers\ExcelParserHelper.cs" />
     <Compile Include="Helpers\IpAddressHelper.cs" />
-    <Compile Include="Migrations\202011201439549_InitialCreate.cs" />
-    <Compile Include="Migrations\202011201439549_InitialCreate.designer.cs">
-      <DependentUpon>202011201439549_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202012091255098_IntialCrat.cs" />
+    <Compile Include="Migrations\202012091255098_IntialCrat.Designer.cs">
+      <DependentUpon>202012091255098_IntialCrat.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202011241421540_AddHolydaysTable.cs" />
-    <Compile Include="Migrations\202011241421540_AddHolydaysTable.Designer.cs">
-      <DependentUpon>202011241421540_AddHolydaysTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011261104080_AutoIncrementPK.cs" />
-    <Compile Include="Migrations\202011261104080_AutoIncrementPK.Designer.cs">
-      <DependentUpon>202011261104080_AutoIncrementPK.cs</DependentUpon>
+    <Compile Include="Migrations\202012091317133_nullableDateTime.cs" />
+    <Compile Include="Migrations\202012091317133_nullableDateTime.Designer.cs">
+      <DependentUpon>202012091317133_nullableDateTime.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\Seeds\HolydaysSeed.cs" />
@@ -253,6 +249,12 @@
     <Content Include="App_Data\swaggerConfig.json" />
     <EmbeddedResource Include="App_Data\PlanificationDeploiement.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012091255098_IntialCrat.resx">
+      <DependentUpon>202012091255098_IntialCrat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012091317133_nullableDateTime.resx">
+      <DependentUpon>202012091317133_nullableDateTime.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -309,17 +311,6 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202011201439549_InitialCreate.resx">
-      <DependentUpon>202011201439549_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011241421540_AddHolydaysTable.resx">
-      <DependentUpon>202011241421540_AddHolydaysTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011261104080_AutoIncrementPK.resx">
-      <DependentUpon>202011261104080_AutoIncrementPK.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -7,13 +7,13 @@ namespace McDonalds.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddHolydaysTable : IMigrationMetadata
+    public sealed partial class nullableDateTime : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddHolydaysTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(nullableDateTime));
         
         string IMigrationMetadata.Id
         {
-            get { return "202011241421540_AddHolydaysTable"; }
+            get { return "202012091317133_nullableDateTime"; }
         }
         
         string IMigrationMetadata.Source

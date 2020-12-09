@@ -7,13 +7,13 @@ namespace McDonalds.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AutoIncrementPK : IMigrationMetadata
+    public sealed partial class IntialCrat : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AutoIncrementPK));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(IntialCrat));
         
         string IMigrationMetadata.Id
         {
-            get { return "202011261104080_AutoIncrementPK"; }
+            get { return "202012091255098_IntialCrat"; }
         }
         
         string IMigrationMetadata.Source

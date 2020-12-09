@@ -81,7 +81,6 @@ namespace McDonalds.ApiControllers
             db.Entry(serverEvent.Restaurant).State = EntityState.Unchanged;
 
             db.ServerEvents.Add(serverEvent);
-            db.SaveChanges();
 
             try
             {

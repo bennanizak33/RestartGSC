@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using McDonalds.commun.Constants;
 using RestartGSC_WPF.Helpers;
 using System.Configuration;
+using System.Windows.Threading;
 
 namespace RestartGSC_WPF
 {
@@ -39,7 +40,7 @@ namespace RestartGSC_WPF
             InitializeComponent();
 
             _globalKeyboardHook = new GlobalKeyboardHook();
-            ServerEventsApi = new IO.Swagger.Api.ServerEventsApi();
+            ServerEventsApi = new IO.Swagger.Api.ServerEventsApi(AppSettings.ReadSetting<string>(AppSettingsConstant.RebootGSCApiURL, null));
 
             _logWriter = logWriter;
             ServerIpAddress = ipAddress;
@@ -62,7 +63,7 @@ namespace RestartGSC_WPF
         {
             int exitCode = 0;
             // commande restart  .bat
-            string output = UptimeHelper.processBatch(cheminBatchRestart, ServerIpAddress, _logWriter, ref exitCode);
+            //string output = UptimeHelper.processBatch(cheminBatchRestart, ServerIpAddress, _logWriter, ref exitCode);
 
             // 10 minutes d'attentes appconfig
             Thread.Sleep(1000 * AppSettings.ReadSetting<int>(AppSettingsConstant.ServerResponseTimeout, 10));
@@ -73,14 +74,11 @@ namespace RestartGSC_WPF
                 {
                     Date = DateTime.Now,
                     Event = IO.Swagger.Model.ServerEvent.EventEnum.NUMBER_5,
-                    Restaurant = new IO.Swagger.Model.Restaurant() { RestaurantId = RestaurantId },
+                    Restaurant = new IO.Swagger.Model.Restaurant() { RestaurantId = RestaurantId, OpeningDate = DateTime.Now },
                     Detail = "Le serveur a repondu"
                 });
 
-                this.Dispatcher.Invoke(() =>
-                {
-                    this.windowText.Text = "Le serveur distant a bien redemarré";
-                });
+                this.Dispatcher.Invoke(DispatcherPriority.Background, new Action(() => this.windowText.Text = "Le serveur distant a bien redemarré"));
 
                 //Thread.Sleep(1000 * AppSettings.ReadSetting<int>(AppSettingsConstant.XmlRpcResponseTimeout, 5) * 60);
 
@@ -90,10 +88,7 @@ namespace RestartGSC_WPF
 
 #if DEBUG
                 //Désactiver le vérouillage après 5 secondes pour pouvoir quitter (à être remplacé par un autre logique après)
-                Task.Delay(new TimeSpan(0, 0, 5)).ContinueWith(o =>
-                {
-                    quitterFenetre();
-                });
+                Delay(5000).ContinueWith(_ => quitterFenetre());
 #endif
 
             }
@@ -103,16 +98,16 @@ namespace RestartGSC_WPF
                 {
                     Date = DateTime.Now,
                     Event = IO.Swagger.Model.ServerEvent.EventEnum.NUMBER_6,
-                    Restaurant = new IO.Swagger.Model.Restaurant() { RestaurantId = RestaurantId },
+                    Restaurant = new IO.Swagger.Model.Restaurant() { RestaurantId = RestaurantId, OpeningDate = DateTime.Now },
                     Detail = "Le serveur n'a pas repondu"
                 });
 
-                this.Dispatcher.Invoke(() =>
+                this.Dispatcher.Invoke(DispatcherPriority.Background, new Action(() =>
                 {
                     this.windowText.Text += "\n" + "Contactez votre mainteneur!";
 
                     this.exitButton.Visibility = Visibility.Visible;
-                });
+                }));
             }           
 
             // if OK call xmlRPc attendre 5 minutes is ok update ecran + update api + deblocage ecran
@@ -139,6 +134,19 @@ namespace RestartGSC_WPF
         private void exitButton_Click(object sender, RoutedEventArgs e)
         {
             quitterFenetre();
+        }
+
+        //static void Main()
+        //{
+        //    Delay(2000).ContinueWith(_ => Console.WriteLine("Done"));
+        //    Console.Read();
+        //}
+
+        private static Task Delay(int milliseconds)
+        {
+            var tcs = new TaskCompletionSource<object>();
+            new Timer(_ => tcs.SetResult(null)).Change(milliseconds, -1);
+            return tcs.Task;
         }
     }
 }
