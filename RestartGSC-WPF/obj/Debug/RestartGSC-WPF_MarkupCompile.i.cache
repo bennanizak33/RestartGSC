@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\obj\Debug\
+C:\Source\Repos\RestartGSC\RestartGSC-WPF\obj\Debug\
 RestartGSC_WPF
 none
 false
 DEBUG;TRACE
-C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\App.xaml
+C:\Source\Repos\RestartGSC\RestartGSC-WPF\App.xaml
 2-588329233
 11395166675
 131176219026
-151720508838
+15-874787547
 bloquerWindow.xaml;MainWindow.xaml;
 
-True
+False
 

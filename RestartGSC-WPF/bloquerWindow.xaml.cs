@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using McDonalds.commun.Constants;
 using RestartGSC_WPF.Helpers;
+using System.Configuration;
 
 namespace RestartGSC_WPF
 {
@@ -30,6 +31,7 @@ namespace RestartGSC_WPF
         private int RestaurantId = 0;
 
         private IO.Swagger.Api.ServerEventsApi ServerEventsApi;
+        private readonly string cheminBatchRestart = @"" + ConfigurationManager.AppSettings["cheminBatchRestart"];
 
 
         public bloquerWindow(LogWriter logWriter, string ipAddress, int restaurantId)
@@ -58,12 +60,14 @@ namespace RestartGSC_WPF
 
         private void executerProcess()
         {
+            int exitCode = 0;
             // commande restart  .bat
+            string output = UptimeHelper.processBatch(cheminBatchRestart, ServerIpAddress, _logWriter, ref exitCode);
 
             // 10 minutes d'attentes appconfig
             Thread.Sleep(1000 * AppSettings.ReadSetting<int>(AppSettingsConstant.ServerResponseTimeout, 10));
 
-            if (PingHelper.CheckAddress(ServerIpAddress).Status != System.Net.NetworkInformation.IPStatus.Success)
+            if (PingHelper.CheckAddress(ServerIpAddress).Status == System.Net.NetworkInformation.IPStatus.Success)
             {
                 ServerEventsApi.ServerEventsPostServerEvent(new IO.Swagger.Model.ServerEvent()
                 {
@@ -75,7 +79,7 @@ namespace RestartGSC_WPF
 
                 this.Dispatcher.Invoke(() =>
                 {
-                    this.windowText.Text = "Le serveur distant a bien redemarrer";
+                    this.windowText.Text = "Le serveur distant a bien redemarré";
                 });
 
                 //Thread.Sleep(1000 * AppSettings.ReadSetting<int>(AppSettingsConstant.XmlRpcResponseTimeout, 5) * 60);
@@ -85,16 +89,10 @@ namespace RestartGSC_WPF
                 //TODO
 
 #if DEBUG
-                //Désactiver le vérouillage après 15 secondes pour pouvoir quitter (à être remplacé par un autre logique après)
+                //Désactiver le vérouillage après 5 secondes pour pouvoir quitter (à être remplacé par un autre logique après)
                 Task.Delay(new TimeSpan(0, 0, 5)).ContinueWith(o =>
                 {
-                    _globalKeyboardHook.KeyboardPressed -= OnKeyPressed;
-                    // déblocage de l'interface 
-                    Application.Current.Dispatcher.Invoke((Action)delegate {
-                        var _mainWindow = new MainWindow();
-                        _mainWindow.Show();
-                        this.Close();
-                    });
+                    quitterFenetre();
                 });
 #endif
 
@@ -112,6 +110,8 @@ namespace RestartGSC_WPF
                 this.Dispatcher.Invoke(() =>
                 {
                     this.windowText.Text += "\n" + "Contactez votre mainteneur!";
+
+                    this.exitButton.Visibility = Visibility.Visible;
                 });
             }           
 
@@ -123,6 +123,22 @@ namespace RestartGSC_WPF
         private void OnKeyPressed(object sender, GlobalKeyboardHookEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void quitterFenetre()
+        {
+            _globalKeyboardHook.KeyboardPressed -= OnKeyPressed;
+            // déblocage de l'interface 
+            Application.Current.Dispatcher.Invoke((Action)delegate {
+                var _mainWindow = new MainWindow();
+                _mainWindow.Show();
+                this.Close();
+            });
+        }
+
+        private void exitButton_Click(object sender, RoutedEventArgs e)
+        {
+            quitterFenetre();
         }
     }
 }

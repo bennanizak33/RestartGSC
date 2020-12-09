@@ -13,7 +13,9 @@ namespace McDonalds.Commun
             
             var result = ConfigurationManager.AppSettings[key] ;
 
-            return string.IsNullOrWhiteSpace(result) ? defaultValue : (T)(object)(result);
+            return string.IsNullOrWhiteSpace(result) ? defaultValue : (T)Convert.ChangeType(result, typeof(T));
+
+            //(T)(object)(result);
         }
     }
 }

@@ -9,5 +9,10 @@
         Title="bloquerWindow" Height="450" Width="800">
     <Grid>
         <TextBox Name="windowText" Text="Votre écran est bloqué" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50" />
+        <Button Name="exitButton" Content="Quitter" HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                Visibility="Hidden"
+                Click="exitButton_Click"
+                Margin="0,0,30,20" Width="103" Height="33" FontSize="18"
+             />
     </Grid>
 </Window>

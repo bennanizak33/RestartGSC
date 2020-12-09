@@ -73,6 +73,7 @@ namespace ExecutionWPF
 #else
                 authorizationResult = new IO.Swagger.Model.AuthorizationModel();
                 authorizationResult.StatusCode = "OK";
+                restaurant = new Restaurant { RestaurantId = 10 };
 #endif
                 IO.Swagger.Model.ServerEvent event_ = null;
 
@@ -86,33 +87,14 @@ namespace ExecutionWPF
                 else
                 {
                     // Specifié la raison du rejet  Event.demandeRejete + DAte du rejet
-                    event_ = new IO.Swagger.Model.ServerEvent()
+                    ServerEventsApi.ServerEventsPostServerEvent(new IO.Swagger.Model.ServerEvent()
                     {
-                        Event = IO.Swagger.Model.ServerEvent.EventEnum.NUMBER_3
-                        // Insert the correct values
-                    };
+                        Date = DateTime.Now,
+                        Event = IO.Swagger.Model.ServerEvent.EventEnum.NUMBER_4,
+                        Restaurant = restaurant,
+                        Detail = authorizationResult.Detail
+                    });
                 }
-                try
-                {
-#if !DEBUG
-                    ServerEventsApi.ServerEventsPostServerEvent(event_);
-#endif
-                }
-                catch (Exception ex)
-                {
-
-                    throw;
-                }
-
-
-#if DEBUG
-
-                // Log
-
-                // blocage screen
-
-                // commande de redemarrage
-#endif
             }
         }
     

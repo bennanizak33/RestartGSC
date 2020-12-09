@@ -102,6 +102,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="App.config" />
+    <None Include="batchRestart.bat" />
     <None Include="batchExample.bat" />
     <None Include="batchExampleError.bat" />
     <None Include="desktop.ini" />
