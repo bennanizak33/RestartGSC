@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestartGSC-WPF", "RestartGS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "McDonalds.commun", "McDonalds.commun\McDonalds.commun.csproj", "{89739BD9-94A8-44E6-BFC2-6FB74C174F85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IO.Swagger", "IO.Swagger\IO.Swagger.csproj", "{8B74928F-3B96-4BAD-94D3-F3F6BFD028DD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IO.Swagger", "IO.Swagger\IO.Swagger.csproj", "{34D42A3D-BC5A-4FCC-9348-CF669EEF8577}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{89739BD9-94A8-44E6-BFC2-6FB74C174F85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89739BD9-94A8-44E6-BFC2-6FB74C174F85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89739BD9-94A8-44E6-BFC2-6FB74C174F85}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8B74928F-3B96-4BAD-94D3-F3F6BFD028DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8B74928F-3B96-4BAD-94D3-F3F6BFD028DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8B74928F-3B96-4BAD-94D3-F3F6BFD028DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8B74928F-3B96-4BAD-94D3-F3F6BFD028DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34D42A3D-BC5A-4FCC-9348-CF669EEF8577}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34D42A3D-BC5A-4FCC-9348-CF669EEF8577}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34D42A3D-BC5A-4FCC-9348-CF669EEF8577}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34D42A3D-BC5A-4FCC-9348-CF669EEF8577}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
