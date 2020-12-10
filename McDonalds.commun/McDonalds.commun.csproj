@@ -63,6 +63,7 @@
     <Compile Include="Constants\AppSettingConstants.cs" />
     <Compile Include="Helpers\ExcelParserHelper.cs" />
     <Compile Include="Helpers\IpAddressHelper.cs" />
+    <Compile Include="Helpers\UpTimeHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

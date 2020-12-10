@@ -49,7 +49,7 @@ namespace McDonalds.ApiControllers
                     Context.SaveChanges();
                 }
 
-                if (TwoWeekRestartRestriction.IsValid(Context, RestaurantId, OperationDateTime))
+                if (!TwoWeekRestartRestriction.IsValid(Context, RestaurantId, OperationDateTime))
                 {
                     return Ok(new AuthorizationModel()
                     {

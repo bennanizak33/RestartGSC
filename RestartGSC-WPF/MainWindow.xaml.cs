@@ -50,7 +50,7 @@ namespace ExecutionWPF
                 Restaurant restaurant = null;
 
                 _logWriter.LogWrite($"exécution Batch : {cheminBatchSucces}");
-                string output = UptimeHelper.processBatch(cheminBatchSucces, ServerName, _logWriter, ref exitCode);
+                //string output = UptimeHelper.processBatch(cheminBatchSucces, ServerName, _logWriter, ref exitCode);
                 _logWriter.LogWrite($"exit code Batch : {exitCode}");
 
                 if (exitCode != 0)
@@ -60,7 +60,7 @@ namespace ExecutionWPF
 
                 if (exitCode == 0)
                 {
-                    var uptime = UptimeHelper.GetUptime(output,_logWriter);
+                    var uptime = 18;// UptimeHelper.GetUptime(output,_logWriter);
 
                     DateTime? LastBootTime = DateTime.Now.AddDays(-uptime);
 
