@@ -60,7 +60,7 @@ namespace ExecutionWPF
 
                 if (exitCode == 0)
                 {
-                    var uptime = 18; // UptimeHelper.GetUptime(output,_logWriter);
+                    var uptime = UptimeHelper.GetUptime(output,_logWriter);
 
                     DateTime? LastBootTime = DateTime.Now.AddDays(-uptime);
 
