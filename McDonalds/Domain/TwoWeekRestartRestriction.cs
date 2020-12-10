@@ -10,10 +10,17 @@ namespace McDonalds.Domain
     {
 		public static bool CheckLastServerUpTimes(McDonaldsContext context, int restaurantId, DateTime upTimes)
         {
-			//return false;
-            return context
-                .ServerEvents
-				.Any(r => r.RestaurantId == restaurantId && r.UpTimes == upTimes);
+			try
+			{
+				//return false;
+				return context
+					.ServerEvents
+					.Any(r => r.RestaurantId == restaurantId && r.UpTimes == upTimes);
+			}
+			catch(Exception ex)
+            {
+				return false;
+            }
         }
         public static bool IsValid(McDonaldsContext context, int restaurantId, DateTime dateTime)
 		{
@@ -22,7 +29,9 @@ namespace McDonalds.Domain
 
 			return context
 				.ServerEvents
-				.Max(r => r.RestaurantId == restaurantId && r.Event == Event.RedemarrageOK && r.Date < days);
+				.Where(r => r.RestaurantId == restaurantId && r.Event == Event.RedemarrageOK && r.UpTimes < days)
+				.OrderByDescending(r => r.Date)
+				.FirstOrDefault() != null;
 		}
 	}
 }

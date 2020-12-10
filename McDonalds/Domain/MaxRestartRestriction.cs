@@ -14,8 +14,8 @@ namespace McDonalds.Domain
 		public static bool IsValid(McDonaldsContext context, DateTime dateTime)
 		{
 			DateTime dateDebut = dateTime.Date;
-
 			DateTime dateFin = dateTime.Date.AddDays(1);
+
 
 			return context
 				.ServerEvents
