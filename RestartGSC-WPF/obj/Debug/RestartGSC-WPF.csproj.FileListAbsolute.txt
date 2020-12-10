@@ -26,6 +26,9 @@ C:\Source\Repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC-WPF.csproj.CoreCo
 C:\Source\Repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC-WPF.csproj.CopyComplete
 C:\Source\Repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC-WPF.exe
 C:\Source\Repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC-WPF.pdb
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\bin\Debug\batchRestart.bat
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\bin\Debug\batchExample.bat
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\bin\Debug\batchExampleError.bat
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\bin\Debug\PsInfo.exe
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\bin\Debug\RestartGSC-WPF.exe.config
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\bin\Debug\RestartGSC-WPF.exe
@@ -34,10 +37,17 @@ C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\bin\Debug\IO.Swa
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\bin\Debug\McDonalds.commun.dll
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\bin\Debug\Newtonsoft.Json.dll
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\bin\Debug\RestSharp.dll
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\bin\Debug\ExcelDataReader.dll
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\bin\Debug\ExcelDataReader.DataSet.dll
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\bin\Debug\ICSharpCode.SharpZipLib.dll
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\bin\Debug\IO.Swagger.pdb
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\bin\Debug\McDonalds.commun.pdb
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\bin\Debug\Newtonsoft.Json.xml
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\bin\Debug\RestSharp.xml
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\bin\Debug\ExcelDataReader.pdb
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\bin\Debug\ExcelDataReader.xml
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\bin\Debug\ExcelDataReader.DataSet.pdb
+C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\bin\Debug\ExcelDataReader.DataSet.xml
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC-WPF.csprojAssemblyReference.cache
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\obj\Debug\MainWindow.baml
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\obj\Debug\bloquerWindow.g.cs
@@ -54,6 +64,3 @@ C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\obj\Debug\Restar
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC-WPF.csproj.CopyComplete
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC-WPF.exe
 C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\obj\Debug\RestartGSC-WPF.pdb
-C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\bin\Debug\batchRestart.bat
-C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\bin\Debug\batchExample.bat
-C:\Users\BENNANI Zakaria\Source\repos\RestartGSC\RestartGSC-WPF\bin\Debug\batchExampleError.bat

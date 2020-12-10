@@ -1,9 +1,9 @@
-namespace McDonalds.Migrations
+﻿namespace McDonalds.Data.Context.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class IntialCrat : DbMigration
+    public partial class InitialCreate : DbMigration
     {
         public override void Up()
         {
@@ -46,22 +46,18 @@ namespace McDonalds.Migrations
                 c => new
                     {
                         ServerEventId = c.Int(nullable: false, identity: true),
+                        RestaurantId = c.Int(nullable: false),
                         Event = c.Int(nullable: false),
                         Date = c.DateTime(nullable: false),
-                        UpTimes = c.DateTime(nullable: false),
+                        UpTimes = c.DateTime(),
                         Detail = c.String(),
-                        Restaurant_RestaurantId = c.Int(),
                     })
-                .PrimaryKey(t => t.ServerEventId)
-                .ForeignKey("dbo.Restaurants", t => t.Restaurant_RestaurantId)
-                .Index(t => t.Restaurant_RestaurantId);
+                .PrimaryKey(t => t.ServerEventId);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.ServerEvents", "Restaurant_RestaurantId", "dbo.Restaurants");
-            DropIndex("dbo.ServerEvents", new[] { "Restaurant_RestaurantId" });
             DropTable("dbo.ServerEvents");
             DropTable("dbo.Restaurants");
             DropTable("dbo.Holydays");

@@ -8,24 +8,26 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
-using McDonalds.DAL;
+using McDonalds.Data.Context;
+using McDonalds.Data.Models;
 
 namespace McDonalds.ApiControllers
 {
     public class ServerEventsController : ApiController
     {
-        private McDonaldsContext db = new McDonaldsContext();
+        private McDonaldsContext Context = new McDonaldsContext();
 
+        // GET: api/ServerEvents
         public IQueryable<ServerEvent> GetServerEvents()
         {
-            return db.ServerEvents;
+            return Context.ServerEvents;
         }
 
-
+        // GET: api/ServerEvents/5
         [ResponseType(typeof(ServerEvent))]
         public IHttpActionResult GetServerEvent(int id)
         {
-            ServerEvent serverEvent = db.ServerEvents.Find(id);
+            ServerEvent serverEvent = Context.ServerEvents.Find(id);
             if (serverEvent == null)
             {
                 return NotFound();
@@ -34,13 +36,13 @@ namespace McDonalds.ApiControllers
             return Ok(serverEvent);
         }
 
-
+        // PUT: api/ServerEvents/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutServerEvent(int id, ServerEvent serverEvent)
         {
-            if (serverEvent.Restaurant == null)
+            if (!ModelState.IsValid)
             {
-                return BadRequest("l'objet Restaurant est null");
+                return BadRequest(ModelState);
             }
 
             if (id != serverEvent.ServerEventId)
@@ -48,12 +50,11 @@ namespace McDonalds.ApiControllers
                 return BadRequest();
             }
 
-            db.Entry(serverEvent).State = EntityState.Modified;
-            db.Entry(serverEvent.Restaurant).State = EntityState.Unchanged;
+            Context.Entry(serverEvent).State = EntityState.Modified;
 
             try
             {
-                db.SaveChanges();
+                Context.SaveChanges();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -70,26 +71,33 @@ namespace McDonalds.ApiControllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+        // POST: api/ServerEvents
         [ResponseType(typeof(ServerEvent))]
         public IHttpActionResult PostServerEvent(ServerEvent serverEvent)
         {
-            if (serverEvent.Restaurant == null)
+            if (!ModelState.IsValid)
             {
-                return BadRequest("l'objet Restaurant est null");
+                return BadRequest(ModelState);
             }
 
-            db.Entry(serverEvent.Restaurant).State = EntityState.Unchanged;
+            Context.ServerEvents.Add(serverEvent);
+            Context.SaveChanges();
 
-            db.ServerEvents.Add(serverEvent);
+            return CreatedAtRoute("DefaultApi", new { id = serverEvent.ServerEventId }, serverEvent);
+        }
 
-            try
+        // DELETE: api/ServerEvents/5
+        [ResponseType(typeof(ServerEvent))]
+        public IHttpActionResult DeleteServerEvent(int id)
+        {
+            ServerEvent serverEvent = Context.ServerEvents.Find(id);
+            if (serverEvent == null)
             {
-                db.SaveChanges();
+                return NotFound();
             }
-            catch (Exception)
-            {
-                return BadRequest("Un probleme est survenu");
-            }
+
+            Context.ServerEvents.Remove(serverEvent);
+            Context.SaveChanges();
 
             return Ok(serverEvent);
         }
@@ -98,14 +106,14 @@ namespace McDonalds.ApiControllers
         {
             if (disposing)
             {
-                db.Dispose();
+                Context.Dispose();
             }
             base.Dispose(disposing);
         }
 
         private bool ServerEventExists(int id)
         {
-            return db.ServerEvents.Count(e => e.ServerEventId == id) > 0;
+            return Context.ServerEvents.Count(e => e.ServerEventId == id) > 0;
         }
     }
 }

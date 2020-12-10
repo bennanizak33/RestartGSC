@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 
-namespace McDonalds.Helpers
+namespace McDonalds.Commun.Helpers
 {
     public class IpAddressHelper
     {

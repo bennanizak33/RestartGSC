@@ -8,28 +8,28 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
-using McDonalds.DAL;
+using McDonalds.Data.Context;
+using McDonalds.Data.Models;
 
 namespace McDonalds.ApiControllers
 {
     public class RestaurantsController : ApiController
     {
-        private McDonaldsContext db = new McDonaldsContext();
+        private McDonaldsContext Context = new McDonaldsContext();
 
-        // GET: api/Restaurants
+        //// GET: api/Restaurants
         //public IQueryable<Restaurant> GetRestaurants()
         //{
-        //    return db.Restaurants;
+        //    return Context.Restaurants;
         //}
 
         // GET: api/Restaurants/5
         [ResponseType(typeof(Restaurant))]
         public IHttpActionResult GetRestaurant(string ipAddress)
         {
-            Restaurant restaurant = db.Restaurants
-                .Include(r => r.ServerEvents)
-                .Where(r => r.ServerIpAddress == ipAddress)
-                .FirstOrDefault();
+            Restaurant restaurant = Context
+                .Restaurants
+                .FirstOrDefault(r => r.ServerIpAddress == ipAddress);
 
             if (restaurant == null)
             {
@@ -38,19 +38,6 @@ namespace McDonalds.ApiControllers
 
             return Ok(restaurant);
         }
-
-        // GET: api/Restaurants/5
-        //[ResponseType(typeof(Restaurant))]
-        //public IHttpActionResult GetRestaurant(int id)
-        //{
-        //    Restaurant restaurant = db.Restaurants.Find(id);
-        //    if (restaurant == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return Ok(restaurant);
-        //}
 
         // PUT: api/Restaurants/5
         [ResponseType(typeof(void))]
@@ -66,11 +53,11 @@ namespace McDonalds.ApiControllers
                 return BadRequest();
             }
 
-            db.Entry(restaurant).State = EntityState.Modified;
+            Context.Entry(restaurant).State = EntityState.Modified;
 
             try
             {
-                db.SaveChanges();
+                Context.SaveChanges();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -96,8 +83,23 @@ namespace McDonalds.ApiControllers
                 return BadRequest(ModelState);
             }
 
-            db.Restaurants.Add(restaurant);
-            db.SaveChanges();
+            Context.Restaurants.Add(restaurant);
+
+            try
+            {
+                Context.SaveChanges();
+            }
+            catch (DbUpdateException)
+            {
+                if (RestaurantExists(restaurant.RestaurantId))
+                {
+                    return Conflict();
+                }
+                else
+                {
+                    throw;
+                }
+            }
 
             return CreatedAtRoute("DefaultApi", new { id = restaurant.RestaurantId }, restaurant);
         }
@@ -106,14 +108,14 @@ namespace McDonalds.ApiControllers
         [ResponseType(typeof(Restaurant))]
         public IHttpActionResult DeleteRestaurant(int id)
         {
-            Restaurant restaurant = db.Restaurants.Find(id);
+            Restaurant restaurant = Context.Restaurants.Find(id);
             if (restaurant == null)
             {
                 return NotFound();
             }
 
-            db.Restaurants.Remove(restaurant);
-            db.SaveChanges();
+            Context.Restaurants.Remove(restaurant);
+            Context.SaveChanges();
 
             return Ok(restaurant);
         }
@@ -122,14 +124,14 @@ namespace McDonalds.ApiControllers
         {
             if (disposing)
             {
-                db.Dispose();
+                Context.Dispose();
             }
             base.Dispose(disposing);
         }
 
         private bool RestaurantExists(int id)
         {
-            return db.Restaurants.Count(e => e.RestaurantId == id) > 0;
+            return Context.Restaurants.Count(e => e.RestaurantId == id) > 0;
         }
     }
 }

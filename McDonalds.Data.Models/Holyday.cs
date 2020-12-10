@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace McDonalds.DAL
+namespace McDonalds.Data.Models
 {
     public class Holyday
     {

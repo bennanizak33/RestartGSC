@@ -10,9 +10,24 @@ namespace RestartGSC_WPF.Helpers
 {
     public class UptimeHelper
     {
-        public static int GetUptime(string output)
+        public static int GetUptime(string output, LogWriter _logWriter)
         {
-            return int.Parse((output.Substring(output.IndexOf("day") - 3, 3)).Trim());
+            int res = 0;
+            try
+            {
+                string numberDays = output.Substring(output.IndexOf("day") - 3, 3);
+
+                _logWriter.LogWrite($" numberDays : {numberDays}");
+
+
+                res = int.Parse(numberDays.Trim());
+            }
+            catch (Exception ex)
+            {
+                _logWriter.LogWrite($" GetUptime : {ex.Message}");
+                throw  ex;
+            }
+            return res;
             //TODO
             //throw new NotImplementedException();
         }

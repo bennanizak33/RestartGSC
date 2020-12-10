@@ -1,4 +1,5 @@
-﻿using McDonalds.DAL;
+﻿using McDonalds.Data.Context;
+using McDonalds.Data.Models;
 using McDonalds.Domain;
 using McDonalds.Models;
 using System;
@@ -14,14 +15,16 @@ namespace McDonalds.ApiControllers
 {
     public class AuthorizationsController : ApiController
     {
-        private McDonaldsContext db = new McDonaldsContext();
-        private Restaurant Restaurant = null;
+        private McDonaldsContext Context = new McDonaldsContext();
+
+        private int RestaurantId = default(int);
+        private DateTime OperationDateTime => DateTime.Now;
 
         // POST: api/ServerEvents
         [ResponseType(typeof(AuthorizationModel))]
-        public IHttpActionResult PostAuthorization(string ipAddress, DateTime upTimes)
+        public IHttpActionResult PostAuthorization( string ipAddress, DateTime upTimes)
         {
-            if (!IpAddressRestriction.IsValid(db, ipAddress, out int restaurantId))
+            if (!IpAddressRestriction.IsValid(Context, ipAddress, out RestaurantId))
             {
                 return Ok(new AuthorizationModel()
                 {
@@ -30,27 +33,20 @@ namespace McDonalds.ApiControllers
                 });
             }
 
-            Restaurant = db
-                .Restaurants
-                .FirstOrDefault(r => r.RestaurantId == restaurantId);
-
-            Restaurant.ServerEvents = new List<ServerEvent>();
-
-
-            if (!TwoWeekRestartRestriction.CheckLastServerUpTimes(db, ipAddress, upTimes))
+            if (!TwoWeekRestartRestriction.CheckLastServerUpTimes(Context, RestaurantId, upTimes))
             {
-                Restaurant.ServerEvents.Add(new ServerEvent()
+                Context.ServerEvents.Add(new ServerEvent()
                 {
-                    Date = DateTime.Now,
+                    Date = OperationDateTime,
                     Event = Event.RedemarrageOK,
                     Detail = "Dernier Redemarrage Serveur",
-                    UpTimes = upTimes
+                    UpTimes = upTimes.Date
                 });
+
+                Context.SaveChanges();
             }
 
-            db.SaveChanges();
-
-            if (!TwoWeekRestartRestriction.IsValid(db,ipAddress,DateTime.Now))
+            if (!TwoWeekRestartRestriction.IsValid(Context,RestaurantId, OperationDateTime))
             {
                 return Ok( new AuthorizationModel()
                 {
@@ -59,7 +55,7 @@ namespace McDonalds.ApiControllers
                 });
             }
 
-            if (!MaxRestartRestriction.IsValid(db,DateTime.Now))
+            if (!MaxRestartRestriction.IsValid(Context, OperationDateTime))
             {
                 return Ok(new AuthorizationModel()
                 {
@@ -68,7 +64,7 @@ namespace McDonalds.ApiControllers
                 });
             }
 
-            if (!StartingDateRestriction.IsValid(db,DateTime.Now))
+            if (!StartingDateRestriction.IsValid(Context, OperationDateTime))
             {
 
                 return Ok(new AuthorizationModel()
@@ -78,7 +74,7 @@ namespace McDonalds.ApiControllers
                 });
             }
 
-            if (DeploiementDateRestriction.CheckDeploiementDate(Restaurant.RestaurantId,DateTime.Now))
+            if (DeploiementDateRestriction.CheckDeploiementDate(RestaurantId, OperationDateTime))
             {
                 return Ok(new AuthorizationModel()
                 {
@@ -87,20 +83,20 @@ namespace McDonalds.ApiControllers
                 });
             }
 
-            if (!PriorityRestriction.CheckPriority(db, ipAddress))
+            if (!PriorityRestriction.CheckPriority(Context, RestaurantId))
             {
-                Restaurant.ServerEvents.Add
+                Context.ServerEvents.Add
                 (
                      new ServerEvent()
                      {
-                         Date = DateTime.Now,
+                         Date = OperationDateTime,
                          Event = Event.DemandeRejete,
                          Detail = "Demande de redemarrage non prioritaire",
-                         UpTimes = upTimes
+                         UpTimes = upTimes.Date
                      }
                 );
 
-                db.SaveChanges();
+                Context.SaveChanges();
 
                 return Ok(new AuthorizationModel()
                 {
@@ -120,7 +116,7 @@ namespace McDonalds.ApiControllers
         {
             if (disposing)
             {
-                db.Dispose();
+                Context.Dispose();
             }
             base.Dispose(disposing);
         }

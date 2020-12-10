@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace McDonalds.DAL
+namespace McDonalds.Data.Models
 {
 	public enum Event
 	{

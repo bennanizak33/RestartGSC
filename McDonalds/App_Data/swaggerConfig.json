@@ -37,24 +37,6 @@
         "deprecated": false
       }
     },
-    "/api/Priorities": {
-      "get": {
-        "tags": [ "Priorities" ],
-        "operationId": "Priorities_GetPriorities",
-        "consumes": [],
-        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "array",
-              "items": { "$ref": "#/definitions/Restaurant" }
-            }
-          }
-        },
-        "deprecated": false
-      }
-    },
     "/api/Restaurants": {
       "get": {
         "tags": [ "Restaurants" ],
@@ -230,6 +212,28 @@
         ],
         "responses": { "204": { "description": "No Content" } },
         "deprecated": false
+      },
+      "delete": {
+        "tags": [ "ServerEvents" ],
+        "operationId": "ServerEvents_DeleteServerEvent",
+        "consumes": [],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/ServerEvent" }
+          }
+        },
+        "deprecated": false
       }
     },
     "/api/Values": {
@@ -369,10 +373,6 @@
         "PermanentClosureDate": {
           "format": "date-time",
           "type": "string"
-        },
-        "ServerEvents": {
-          "type": "array",
-          "items": { "$ref": "#/definitions/ServerEvent" }
         }
       }
     },
@@ -380,6 +380,10 @@
       "type": "object",
       "properties": {
         "ServerEventId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "RestaurantId": {
           "format": "int32",
           "type": "integer"
         },
@@ -396,8 +400,7 @@
           "format": "date-time",
           "type": "string"
         },
-        "Detail": { "type": "string" },
-        "Restaurant": { "$ref": "#/definitions/Restaurant" }
+        "Detail": { "type": "string" }
       }
     }
   }

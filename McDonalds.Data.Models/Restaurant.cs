@@ -5,7 +5,7 @@ using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace McDonalds.DAL
+namespace McDonalds.Data.Models
 {
 	public class Restaurant
 	{
@@ -42,8 +42,6 @@ namespace McDonalds.DAL
 		public DateTime? OpeningDate { get; set; }
 
 		public DateTime? PermanentClosureDate { get; set; }
-
-		public virtual List<ServerEvent> ServerEvents { get; set; }
 
 	}
 }

@@ -1,30 +1,28 @@
-﻿using McDonalds.DAL;
+﻿using McDonalds.Data.Context;
+using McDonalds.Data.Models;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Web;
 
 namespace McDonalds.Domain
 {
     public class TwoWeekRestartRestriction
     {
-		public static bool CheckLastServerUpTimes(McDonaldsContext context, string ipAddress, DateTime upTimes)
+		public static bool CheckLastServerUpTimes(McDonaldsContext context, int restaurantId, DateTime upTimes)
         {
-			return context
-				.Restaurants
-				.Include(r => r.ServerEvents)
-				.Any(r => r.ServerIpAddress == ipAddress && r.ServerEvents.Any(se => se.UpTimes == upTimes));
-		}
-		public static bool IsValid(McDonaldsContext context, string ipAddress, DateTime dateTime)
+			//return false;
+            return context
+                .ServerEvents
+				.Any(r => r.RestaurantId == restaurantId && r.UpTimes == upTimes);
+        }
+        public static bool IsValid(McDonaldsContext context, int restaurantId, DateTime dateTime)
 		{
 
-			DateTime days = DateTime.Now.AddDays(-15);
+			DateTime days = dateTime.Date.AddDays(-15);
 
 			return context
-				.Restaurants
-				.Include(r => r.ServerEvents)
-				.Any(r => r.ServerIpAddress == ipAddress && r.ServerEvents.Max(se => se.Date) > days);
+				.ServerEvents
+				.Max(r => r.RestaurantId == restaurantId && r.Event == Event.RedemarrageOK && r.Date < days);
 		}
 	}
 }

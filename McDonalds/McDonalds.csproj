@@ -59,6 +59,9 @@
       <HintPath>..\packages\ExcelDataReader.DataSet.3.6.0\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MoreLinq, Version=3.3.2.0, Culture=neutral, PublicKeyToken=384d532d7e88985d, processorArchitecture=MSIL">
+      <HintPath>..\packages\morelinq.3.3.2\lib\net451\MoreLinq.dll</HintPath>
+    </Reference>
     <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
       <HintPath>..\packages\Swashbuckle.Core.5.2.1\lib\net40\Swashbuckle.Core.dll</HintPath>
     </Reference>
@@ -67,6 +70,9 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -145,7 +151,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiControllers\AuthorizationsController.cs" />
-    <Compile Include="ApiControllers\PrioritiesController.cs" />
     <Compile Include="ApiControllers\RestaurantsController.cs" />
     <Compile Include="ApiControllers\ServerEventsController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -181,14 +186,8 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Constants\AppSettingConstant.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="ApiControllers\ValuesController.cs" />
-    <Compile Include="DAL\Event.cs" />
-    <Compile Include="DAL\Holyday.cs" />
-    <Compile Include="DAL\ServerEvent.cs" />
-    <Compile Include="DAL\McDonaldsContext.cs" />
-    <Compile Include="DAL\Restaurant.cs" />
     <Compile Include="Domain\DeploiementDateRestriction.cs" />
     <Compile Include="Domain\IpAddressRestriction.cs" />
     <Compile Include="Domain\MaxRestartRestriction.cs" />
@@ -198,19 +197,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\ExcelParserHelper.cs" />
-    <Compile Include="Helpers\IpAddressHelper.cs" />
-    <Compile Include="Migrations\202012091255098_IntialCrat.cs" />
-    <Compile Include="Migrations\202012091255098_IntialCrat.Designer.cs">
-      <DependentUpon>202012091255098_IntialCrat.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202012091317133_nullableDateTime.cs" />
-    <Compile Include="Migrations\202012091317133_nullableDateTime.Designer.cs">
-      <DependentUpon>202012091317133_nullableDateTime.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Migrations\Seeds\HolydaysSeed.cs" />
-    <Compile Include="Migrations\Seeds\RestaurantsSeed.cs" />
     <Compile Include="Models\AuthorizationModel.cs" />
     <Compile Include="Models\DeploimentDateModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -247,15 +233,6 @@
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="libman.json" />
     <Content Include="App_Data\swaggerConfig.json" />
-    <EmbeddedResource Include="App_Data\PlanificationDeploiement.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012091255098_IntialCrat.resx">
-      <DependentUpon>202012091255098_IntialCrat.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012091317133_nullableDateTime.resx">
-      <DependentUpon>202012091317133_nullableDateTime.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -281,6 +258,14 @@
     <ProjectReference Include="..\McDonalds.commun\McDonalds.commun.csproj">
       <Project>{89739bd9-94a8-44e6-bfc2-6fb74c174f85}</Project>
       <Name>McDonalds.commun</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\McDonalds.Data.Context\McDonalds.Data.Context.csproj">
+      <Project>{eddd7580-636b-4aeb-93b3-1f0b4c3f6e5e}</Project>
+      <Name>McDonalds.Data.Context</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\McDonalds.Data.Models\McDonalds.Data.Models.csproj">
+      <Project>{85cae6d6-53a6-4aff-b5ce-75d0bdbf00ba}</Project>
+      <Name>McDonalds.Data.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

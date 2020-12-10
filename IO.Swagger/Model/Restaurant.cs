@@ -49,8 +49,7 @@ namespace IO.Swagger.Model
         /// <param name="faxNumber">faxNumber.</param>
         /// <param name="openingDate">openingDate.</param>
         /// <param name="permanentClosureDate">permanentClosureDate.</param>
-        /// <param name="serverEvents">serverEvents.</param>
-        public Restaurant(int? restaurantId = default(int?), string nom = default(string), string shortName = default(string), string serverName = default(string), string serverIpAddress = default(string), string email = default(string), string city = default(string), string address1 = default(string), string address2 = default(string), string address3 = default(string), string address4 = default(string), int? zipCode = default(int?), string phoneNumber = default(string), string faxNumber = default(string), DateTime? openingDate = default(DateTime?), DateTime? permanentClosureDate = default(DateTime?), List<ServerEvent> serverEvents = default(List<ServerEvent>))
+        public Restaurant(int? restaurantId = default(int?), string nom = default(string), string shortName = default(string), string serverName = default(string), string serverIpAddress = default(string), string email = default(string), string city = default(string), string address1 = default(string), string address2 = default(string), string address3 = default(string), string address4 = default(string), int? zipCode = default(int?), string phoneNumber = default(string), string faxNumber = default(string), DateTime? openingDate = default(DateTime?), DateTime? permanentClosureDate = default(DateTime?))
         {
             this.RestaurantId = restaurantId;
             this.Nom = nom;
@@ -68,7 +67,6 @@ namespace IO.Swagger.Model
             this.FaxNumber = faxNumber;
             this.OpeningDate = openingDate;
             this.PermanentClosureDate = permanentClosureDate;
-            this.ServerEvents = serverEvents;
         }
         
         /// <summary>
@@ -168,12 +166,6 @@ namespace IO.Swagger.Model
         public DateTime? PermanentClosureDate { get; set; }
 
         /// <summary>
-        /// Gets or Sets ServerEvents
-        /// </summary>
-        [DataMember(Name="ServerEvents", EmitDefaultValue=false)]
-        public List<ServerEvent> ServerEvents { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -197,7 +189,6 @@ namespace IO.Swagger.Model
             sb.Append("  FaxNumber: ").Append(FaxNumber).Append("\n");
             sb.Append("  OpeningDate: ").Append(OpeningDate).Append("\n");
             sb.Append("  PermanentClosureDate: ").Append(PermanentClosureDate).Append("\n");
-            sb.Append("  ServerEvents: ").Append(ServerEvents).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -311,11 +302,6 @@ namespace IO.Swagger.Model
                     this.PermanentClosureDate == input.PermanentClosureDate ||
                     (this.PermanentClosureDate != null &&
                     this.PermanentClosureDate.Equals(input.PermanentClosureDate))
-                ) && 
-                (
-                    this.ServerEvents == input.ServerEvents ||
-                    this.ServerEvents != null &&
-                    this.ServerEvents.SequenceEqual(input.ServerEvents)
                 );
         }
 
@@ -360,8 +346,6 @@ namespace IO.Swagger.Model
                     hashCode = hashCode * 59 + this.OpeningDate.GetHashCode();
                 if (this.PermanentClosureDate != null)
                     hashCode = hashCode * 59 + this.PermanentClosureDate.GetHashCode();
-                if (this.ServerEvents != null)
-                    hashCode = hashCode * 59 + this.ServerEvents.GetHashCode();
                 return hashCode;
             }
         }

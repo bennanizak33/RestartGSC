@@ -1,4 +1,7 @@
-﻿using McDonalds.DAL;
+﻿
+using McDonalds.Data.Context;
+using McDonalds.Data.Models;
+using MoreLinq.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -10,19 +13,24 @@ namespace McDonalds.Domain
 {
     public class PriorityRestriction
     {
-        public static IEnumerable<Restaurant> GetPriorityRestaurant(McDonaldsContext context)
+        public static IEnumerable<int> GetPriorityRestaurant(McDonaldsContext context)
         {
+            DateTime dateDebut = DateTime.Now.Date;
+
+            DateTime DateFin = dateDebut.AddDays(-1);
+
             return context
-                .Restaurants
-                .Include(r => r.ServerEvents)
-                .Where(r => r.ServerEvents.OrderByDescending(se => se.Date).FirstOrDefault().Event == Event.DemandeRejete )
-                .OrderBy( r => r.ServerEvents.Select(se => se.Date))
-                .ToList();
+                .ServerEvents
+                .Where(se => se.Date > DateFin && se.Date < dateDebut && (se.Event == Event.DemandeRejete || se.Event == Event.RedemarrageNOK))
+                .OrderByDescending(se => se.Date)
+                .DistinctBy(se => se.RestaurantId)
+                .Select(se => se.RestaurantId)
+                .Take(200);
         }
 
-        public static bool CheckPriority(McDonaldsContext context, string ipAddress)
+        public static bool CheckPriority(McDonaldsContext context, int restaurantId)
         {
-            return GetPriorityRestaurant(context).FirstOrDefault(pr => pr.ServerIpAddress == ipAddress) != null;
+            return GetPriorityRestaurant(context).FirstOrDefault() == restaurantId;
         }
     }
 }

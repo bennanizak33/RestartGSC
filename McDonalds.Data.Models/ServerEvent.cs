@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace McDonalds.DAL
+namespace McDonalds.Data.Models
 {
 	public class ServerEvent
 	{
@@ -13,14 +13,14 @@ namespace McDonalds.DAL
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)] 
 		public int ServerEventId { get; set; }
 
-		public Event Event { get; set; }
+        public int RestaurantId { get; set; }
 
-		public DateTime? Date { get; set; }
+        public Event Event { get; set; }
+
+		public DateTime Date { get; set; }
 
         public DateTime? UpTimes { get; set; }
 
         public string Detail { get; set; }
-
-        public virtual Restaurant Restaurant { get; set; }
 	}
 }

@@ -1,10 +1,11 @@
-﻿using System;
+﻿using McDonalds.Data.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace McDonalds.DAL
+namespace McDonalds.Data.Context
 {
 	public class McDonaldsContext : DbContext
 	{

@@ -88,19 +88,19 @@ namespace IO.Swagger.Model
         /// Initializes a new instance of the <see cref="ServerEvent" /> class.
         /// </summary>
         /// <param name="serverEventId">serverEventId.</param>
+        /// <param name="restaurantId">restaurantId.</param>
         /// <param name="_event">_event.</param>
         /// <param name="date">date.</param>
         /// <param name="upTimes">upTimes.</param>
         /// <param name="detail">detail.</param>
-        /// <param name="restaurant">restaurant.</param>
-        public ServerEvent(int? serverEventId = default(int?), EventEnum? _event = default(EventEnum?), DateTime? date = default(DateTime?), DateTime? upTimes = default(DateTime?), string detail = default(string), Restaurant restaurant = default(Restaurant))
+        public ServerEvent(int? serverEventId = default(int?), int? restaurantId = default(int?), EventEnum? _event = default(EventEnum?), DateTime? date = default(DateTime?), DateTime? upTimes = default(DateTime?), string detail = default(string))
         {
             this.ServerEventId = serverEventId;
+            this.RestaurantId = restaurantId;
             this.Event = _event;
             this.Date = date;
             this.UpTimes = upTimes;
             this.Detail = detail;
-            this.Restaurant = restaurant;
         }
         
         /// <summary>
@@ -108,6 +108,12 @@ namespace IO.Swagger.Model
         /// </summary>
         [DataMember(Name="ServerEventId", EmitDefaultValue=false)]
         public int? ServerEventId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RestaurantId
+        /// </summary>
+        [DataMember(Name="RestaurantId", EmitDefaultValue=false)]
+        public int? RestaurantId { get; set; }
 
 
         /// <summary>
@@ -129,12 +135,6 @@ namespace IO.Swagger.Model
         public string Detail { get; set; }
 
         /// <summary>
-        /// Gets or Sets Restaurant
-        /// </summary>
-        [DataMember(Name="Restaurant", EmitDefaultValue=false)]
-        public Restaurant Restaurant { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -143,11 +143,11 @@ namespace IO.Swagger.Model
             var sb = new StringBuilder();
             sb.Append("class ServerEvent {\n");
             sb.Append("  ServerEventId: ").Append(ServerEventId).Append("\n");
+            sb.Append("  RestaurantId: ").Append(RestaurantId).Append("\n");
             sb.Append("  Event: ").Append(Event).Append("\n");
             sb.Append("  Date: ").Append(Date).Append("\n");
             sb.Append("  UpTimes: ").Append(UpTimes).Append("\n");
             sb.Append("  Detail: ").Append(Detail).Append("\n");
-            sb.Append("  Restaurant: ").Append(Restaurant).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -188,6 +188,11 @@ namespace IO.Swagger.Model
                     this.ServerEventId.Equals(input.ServerEventId))
                 ) && 
                 (
+                    this.RestaurantId == input.RestaurantId ||
+                    (this.RestaurantId != null &&
+                    this.RestaurantId.Equals(input.RestaurantId))
+                ) && 
+                (
                     this.Event == input.Event ||
                     (this.Event != null &&
                     this.Event.Equals(input.Event))
@@ -206,11 +211,6 @@ namespace IO.Swagger.Model
                     this.Detail == input.Detail ||
                     (this.Detail != null &&
                     this.Detail.Equals(input.Detail))
-                ) && 
-                (
-                    this.Restaurant == input.Restaurant ||
-                    (this.Restaurant != null &&
-                    this.Restaurant.Equals(input.Restaurant))
                 );
         }
 
@@ -225,6 +225,8 @@ namespace IO.Swagger.Model
                 int hashCode = 41;
                 if (this.ServerEventId != null)
                     hashCode = hashCode * 59 + this.ServerEventId.GetHashCode();
+                if (this.RestaurantId != null)
+                    hashCode = hashCode * 59 + this.RestaurantId.GetHashCode();
                 if (this.Event != null)
                     hashCode = hashCode * 59 + this.Event.GetHashCode();
                 if (this.Date != null)
@@ -233,8 +235,6 @@ namespace IO.Swagger.Model
                     hashCode = hashCode * 59 + this.UpTimes.GetHashCode();
                 if (this.Detail != null)
                     hashCode = hashCode * 59 + this.Detail.GetHashCode();
-                if (this.Restaurant != null)
-                    hashCode = hashCode * 59 + this.Restaurant.GetHashCode();
                 return hashCode;
             }
         }

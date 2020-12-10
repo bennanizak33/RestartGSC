@@ -1,10 +1,7 @@
-﻿using McDonalds.DAL;
-using McDonalds.Helpers;
-using System;
-using System.Collections.Generic;
+﻿using McDonalds.Commun.Helpers;
+using McDonalds.Data.Context;
 using System.Linq;
 using System.Net;
-using System.Web;
 
 namespace McDonalds.Domain
 {

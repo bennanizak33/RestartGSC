@@ -1,6 +1,7 @@
-﻿using McDonalds.Commun;
-using McDonalds.Constants;
-using McDonalds.DAL;
+﻿using McDonalds.commun.Constants;
+using McDonalds.Commun;
+using McDonalds.Data.Context;
+using McDonalds.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +13,15 @@ namespace McDonalds.Domain
 	{
 		public static bool IsValid(McDonaldsContext context, DateTime dateTime)
 		{
+			DateTime dateDebut = dateTime.Date;
+
+			DateTime dateFin = dateTime.Date.AddDays(1);
+
 			return context
 				.ServerEvents
 				.AsNoTracking()
-				.Where(se => se.Date.Value.Date == dateTime.Date && se.Event == Event.RedemarrageOK)
-				.Count() < AppSettings.ReadSetting(AppSettingConstant.MaxRestartPerDay, 0);
+				.Where(se => se.Date > dateDebut && se.Date < dateFin && se.Event == Event.RedemarrageOK)
+				.Count() < AppSettings.ReadSetting(AppSettingConstants.MaxRestartPerDay, 200);
 		}
     }
 }

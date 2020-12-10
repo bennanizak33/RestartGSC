@@ -1,11 +1,11 @@
-﻿using McDonalds.DAL;
+﻿using McDonalds.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
 
-namespace McDonalds.Migrations.Seeds
+namespace McDonalds.Data.Context.Migrations.Seeds
 {
     public class HolydaysSeed
     {

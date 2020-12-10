@@ -40,7 +40,7 @@ namespace RestartGSC_WPF
             InitializeComponent();
 
             _globalKeyboardHook = new GlobalKeyboardHook();
-            ServerEventsApi = new IO.Swagger.Api.ServerEventsApi(AppSettings.ReadSetting<string>(AppSettingsConstant.RebootGSCApiURL, null));
+            ServerEventsApi = new IO.Swagger.Api.ServerEventsApi(AppSettings.ReadSetting<string>(AppSettingConstants.RebootGSCApiURL, null));
 
             _logWriter = logWriter;
             ServerIpAddress = ipAddress;
@@ -61,54 +61,64 @@ namespace RestartGSC_WPF
 
         private void executerProcess()
         {
-            int exitCode = 0;
-            // commande restart  .bat
-            //string output = UptimeHelper.processBatch(cheminBatchRestart, ServerIpAddress, _logWriter, ref exitCode);
-
-            // 10 minutes d'attentes appconfig
-            Thread.Sleep(1000 * AppSettings.ReadSetting<int>(AppSettingsConstant.ServerResponseTimeout, 10));
-
-            if (PingHelper.CheckAddress(ServerIpAddress).Status == System.Net.NetworkInformation.IPStatus.Success)
+            try
             {
-                ServerEventsApi.ServerEventsPostServerEvent(new IO.Swagger.Model.ServerEvent()
+                int exitCode = 0;
+                // commande restart  .bat
+                string output = UptimeHelper.processBatch(cheminBatchRestart, ServerIpAddress, _logWriter, ref exitCode);
+
+                // 10 minutes d'attentes appconfig
+                Thread.Sleep(1000 * AppSettings.ReadSetting<int>(AppSettingConstants.ServerResponseTimeout, 10));
+
+                if (PingHelper.CheckAddress(ServerIpAddress).Status == System.Net.NetworkInformation.IPStatus.Success)
                 {
-                    Date = DateTime.Now,
-                    Event = IO.Swagger.Model.ServerEvent.EventEnum.NUMBER_5,
-                    Restaurant = new IO.Swagger.Model.Restaurant() { RestaurantId = RestaurantId, OpeningDate = DateTime.Now },
-                    Detail = "Le serveur a repondu"
-                });
+                    ServerEventsApi.ServerEventsPostServerEvent(new IO.Swagger.Model.ServerEvent()
+                    {
+                        Date = DateTime.Now,
+                        Event = IO.Swagger.Model.ServerEvent.EventEnum.NUMBER_5,
+                        RestaurantId = RestaurantId,
+                        Detail = "Le serveur a repondu"
+                    });
 
-                this.Dispatcher.Invoke(DispatcherPriority.Background, new Action(() => this.windowText.Text = "Le serveur distant a bien redemarré"));
+                    this.Dispatcher.Invoke(DispatcherPriority.Background, new Action(() => this.windowText.Text = "Le serveur distant a bien redemarré"));
 
-                //Thread.Sleep(1000 * AppSettings.ReadSetting<int>(AppSettingsConstant.XmlRpcResponseTimeout, 5) * 60);
+                    //Thread.Sleep(1000 * AppSettings.ReadSetting<int>(AppSettingsConstant.XmlRpcResponseTimeout, 5) * 60);
 
-                //Call XmlRpc
+                    //Call XmlRpc
 
-                //TODO
+                    //TODO
 
 #if DEBUG
                 //Désactiver le vérouillage après 5 secondes pour pouvoir quitter (à être remplacé par un autre logique après)
                 Delay(5000).ContinueWith(_ => quitterFenetre());
 #endif
 
+                }
+                else
+                {
+                    ServerEventsApi.ServerEventsPostServerEvent(new IO.Swagger.Model.ServerEvent()
+                    {
+                        Date = DateTime.Now,
+                        Event = IO.Swagger.Model.ServerEvent.EventEnum.NUMBER_6,
+                        RestaurantId = RestaurantId,
+                        Detail = "Le serveur n'a pas repondu"
+                    });
+
+                    this.Dispatcher.Invoke(DispatcherPriority.Background, new Action(() =>
+                    {
+                        this.windowText.Text += "\n" + "Contactez votre mainteneur!";
+
+                        this.exitButton.Visibility = Visibility.Visible;
+                    }));
+                }
             }
-            else
+            catch (Exception ex )
             {
-                ServerEventsApi.ServerEventsPostServerEvent(new IO.Swagger.Model.ServerEvent()
-                {
-                    Date = DateTime.Now,
-                    Event = IO.Swagger.Model.ServerEvent.EventEnum.NUMBER_6,
-                    Restaurant = new IO.Swagger.Model.Restaurant() { RestaurantId = RestaurantId, OpeningDate = DateTime.Now },
-                    Detail = "Le serveur n'a pas repondu"
-                });
-
-                this.Dispatcher.Invoke(DispatcherPriority.Background, new Action(() =>
-                {
-                    this.windowText.Text += "\n" + "Contactez votre mainteneur!";
-
-                    this.exitButton.Visibility = Visibility.Visible;
-                }));
-            }           
+                _logWriter.LogWrite($" ClassName : bloquerWindow ");
+                _logWriter.LogWrite($" Exception : {ex.Message}");
+                _logWriter.LogWrite($" Exception : {ex.StackTrace}");
+                throw;
+            }          
 
             // if OK call xmlRPc attendre 5 minutes is ok update ecran + update api + deblocage ecran
 
